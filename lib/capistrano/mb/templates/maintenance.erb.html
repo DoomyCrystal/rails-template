@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Maintenance</title>
+    <title>Wartungsarbeiten</title>
     <style type="text/css">
     body {
         width: 500px;
@@ -16,11 +16,11 @@
     </style>
 </head>
 <body>
-    <h1>Maintenance</h1>
+    <h1>Wartungsarbeiten</h1>
 
-    <p>Our systems are currently down for <%= reason ? reason : "maintenance" %><br>
-           as of <%= Time.now.strftime("%H:%M %Z") %>.</p>
+    <p>Unsere Server sind zurzeit offline aufgrund von <%= reason ? reason : "Wartungsarbeiten" %><br>
+           ab <%= Time.now.strftime("%H:%M %Z") %>.</p>
 
-    <p>We’ll be back <%= deadline ? deadline : "shortly" %>.</p>
+    <p>Wird sind <%= deadline ? "am #{deadline}" : "bald" %> zurück für Sie.</p>
 </body>
 </html>
