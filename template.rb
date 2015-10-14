@@ -33,11 +33,25 @@ def apply_template!
   apply "test/template.rb"
 
   apply "variants/bootstrap/template.rb" if apply_bootstrap?
-
   git :init unless preexisting_git_repo?
 
   run_with_clean_bundler_env "bin/setup"
   generate_spring_binstubs
+
+  if apply_alchemycms?
+    apply "variants/alchemycms/template.rb"
+
+    remove_file "app/controllers/home_controller.rb"
+    remove_file "app/views/home/index.html.haml"
+    Dir.delete File.expand_path("app/views/home", destination_root)
+
+    run "bundle update"
+    run "bin/rake alchemy:install"
+    run "bin/rails g alchemy:devise:install"
+
+    # alchemy creates that stuff again
+    remove_file "app/views/layouts/application.html.erb"
+  end
 
   unless preexisting_git_repo?
     git :add => "-A ."
@@ -63,7 +77,7 @@ def add_template_repository_to_source_path
     at_exit { FileUtils.remove_entry(tempdir) }
     git :clone => [
       "--quiet",
-      "https://github.com/mattbrictson/rails-template.git",
+      "https://github.com/m43nu/rails-template.git",
       tempdir
     ].map(&:shellescape).join(" ")
   else
@@ -151,6 +165,11 @@ end
 
 def apply_bootstrap?
   ask_with_default("Use Bootstrap gems, layouts, views, etc.?", :blue, "no")\
+    =~ /^y(es)?/i
+end
+
+def apply_alchemycms?
+  ask_with_default("Install and setup AlchemyCMS?", :blue, "no")\
     =~ /^y(es)?/i
 end
 

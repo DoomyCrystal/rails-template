@@ -1,6 +1,8 @@
-# mattbrictson/rails-template
+# m43nu/rails-template
 
 ## Description
+
+*Forked from mattbrictson/rails-template*
 
 This is the application template that I use for my Rails 4.2 projects. As a freelance Rails developer, I need to be able to start new projects quickly and with a good set of defaults. I've assembled this template over the years to include best-practices, tweaks, documentation, and personal preferences, while still generally adhering to the "Rails way".
 
@@ -11,7 +13,7 @@ This template currently works with:
 * Rails 4.2.x
 * PostgreSQL
 
-If you need help setting up a Ruby development environment, check out my [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
+If you need help setting up a Ruby development environment, check out Matt Brictsons [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
 
 ## Installation
 
@@ -77,6 +79,7 @@ The template will perform the following steps:
     * [livereload][] – magically refreshes browsers whenever you save a file
     * [rubocop][] – enforces Ruby code style
     * [xray-rails][] – inspect view partials in the browser
+    * [haml-rails][] - use haml instead of erb
 * Deployment
     * [airbrussh][] – prettier log output for capistrano
     * [capistrano-mb][] – capistrano recipes
@@ -105,6 +108,13 @@ Action Mailer is configured to use [Mandrill][] for SMTP. You can change this by
 * Application layout that includes Bootstrap-style navbar and boilerplate
 * View helpers for generating common Bootstrap markup
 
+#### AlchemyCMS integration (optional)
+
+[AlchemyCMS][]-related features are opt-in. To apply these to your project, answer "yes" when prompted.
+
+* Installs AlchemyCMS and AlchemyCMS-Devise
+* Application layout ready to use with AlchemyCMS
+
 #### Other tweaks that patch over some Rails shortcomings
 
 * A much-improved `bin/setup` script
@@ -121,7 +131,7 @@ Action Mailer is configured to use [Mandrill][] for SMTP. You can change this by
 
 This project works by hooking into the standard Rails [application templates][] system, with some caveats. The entry point is the [template.rb][] file in the root of this repository.
 
-Normally, Rails only allows a single file to be specified as an application template (i.e. using the `-m <URL>` option). To work around this limitation, the first step this template performs is a `git clone` of the `mattbrictson/rails-template` repository to a local temporary directory.
+Normally, Rails only allows a single file to be specified as an application template (i.e. using the `-m <URL>` option). To work around this limitation, the first step this template performs is a `git clone` of the `m43nu/rails-template` repository to a local temporary directory.
 
 This temporary directory is then added to the `source_paths` of the Rails generator system, allowing all of its ERb templates and files to be referenced when the application template script is evaluated.
 
@@ -129,6 +139,7 @@ Rails generators are very lightly documented; what you’ll find is that most of
 
 [active_type]:https://github.com/makandra/active_type
 [sidekiq]:http://sidekiq.org
+[haml-rails]:https://github.com/indirect/haml-rails
 [dotenv]:https://github.com/bkeepers/dotenv
 [annotate]:https://github.com/ctran/annotate_models
 [autoprefixer-rails]:https://github.com/ai/autoprefixer-rails
@@ -154,6 +165,7 @@ Rails generators are very lightly documented; what you’ll find is that most of
 [simplecov]:https://github.com/colszowka/simplecov
 [test_after_commit]:https://github.com/grosser/test_after_commit
 [Bootstrap]:http://getbootstrap.com
+[AlchemyCMS]:http://alchemy-cms.com
 [application templates]:http://guides.rubyonrails.org/generators.html#application-templates
 [template.rb]: template.rb
 [thor]: https://github.com/erikhuda/thor
