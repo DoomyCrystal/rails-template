@@ -10,7 +10,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    = render_meta_data
+    = render_meta_data title_prefix: "<%= app_const_base.titleize %>", title_separator: " - "
 
     %meta(name="mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-capable" content="yes")
@@ -18,10 +18,6 @@
     %meta(name="apple-mobile-web-app-title" content="<%= app_const_base.titleize %>")
 
     = csrf_meta_tags
-
-    %title
-      = strip_tags(yield(:title)) + " – " if content_for?(:title)
-      <%= app_const_base.titleize %>
   %body
     /[if lt IE 9]
       <p class="browserupgrade">
@@ -29,6 +25,7 @@
       Ihren Browser</a>
       um diese Seite optimal darzustellen.
       </p>
+    = render('shared/flash')
     = yield
 
     = alchemy_preview_mode_code
