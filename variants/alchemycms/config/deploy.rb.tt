@@ -19,4 +19,20 @@ set :mb_dotenv_keys, %w(
   sidekiq_web_password
 )
 
+set :mb_newrelic_license_key, "<%= new_relic_license_key %>"
+set :mb_newrelic_app_name, "<%= app_name %>"
+
+set :linked_files, fetch(:linked_files, []).push('config/newrelic.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('uploads')
+
+namespace :deploy do
+  after :restart, :clear_cache do
+    on roles(:web) do
+      within release_path do
+        execute :rake, 'tmp:clear'
+      end
+    end
+  end
+
+  after :finishing, 'deploy:restart'
+end

@@ -142,6 +142,11 @@ def staging_hostname
     ask_with_default("Staging hostname?", :blue, "staging.example.com")
 end
 
+def new_relic_license_key
+  @new_relic_license_key ||=
+      ask_with_default("New Relic license key?", :blue, "skip")
+end
+
 def gemfile_requirement(name)
   @original_gemfile ||= IO.read("Gemfile")
   req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*).*$/, 1]

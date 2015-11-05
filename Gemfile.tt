@@ -21,6 +21,7 @@ gem "haml-rails", "~> 0.9"
 group :production, :staging do
   gem "unicorn"
   gem "unicorn-worker-killer"
+  gem "newrelic_rpm"
 end
 
 group :development do

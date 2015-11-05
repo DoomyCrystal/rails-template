@@ -17,3 +17,8 @@ set :mb_dotenv_keys, %w(
   sidekiq_web_username
   sidekiq_web_password
 )
+
+set :mb_newrelic_license_key, "<%= new_relic_license_key %>"
+set :mb_newrelic_app_name, "<%= app_name %>"
+
+set :linked_files, fetch(:linked_files, []).push('config/newrelic.yml')

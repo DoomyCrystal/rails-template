@@ -5,6 +5,7 @@ apply "app/assets/stylesheets/application.css.scss.rb"
 copy_file "app/assets/javascripts/bootstrap.js"
 copy_file "app/assets/stylesheets/utilities/lib.css.scss"
 copy_file "app/assets/stylesheets/utilities/variables.css.scss"
+copy_file "app/assets/stylesheets/utilities/block-grids.css.scss"
 copy_file "app/helpers/navbar_helper.rb"
 copy_file "app/views/layouts/application.html.haml", :force => true
 template "app/views/shared/_footer.html.haml.tt"
