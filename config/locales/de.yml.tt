@@ -1,0 +1,2 @@
+de:
+  meta_title: <%= app_name %>

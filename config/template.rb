@@ -26,6 +26,8 @@ gsub_file "config/initializers/filter_parameter_logging.rb", /\[:password\]/ do
   "%w(password secret session cookie csrf)"
 end
 
+template "config/locales/de.yml.tt"
+
 apply "config/environments/development.rb"
 apply "config/environments/production.rb"
 apply "config/environments/test.rb"
