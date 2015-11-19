@@ -11,6 +11,7 @@ gem "mail", ">= 2.6.3"
 gem "marco-polo"
 gem "pg"<%= gemfile_requirement("pg") || ', "~> 0.18"' %>
 gem "rails", "<%= Rails.version %>"
+gem "redis-namespace"
 gem "sass-rails"<%= gemfile_requirement("sass-rails") %>
 gem "secure_headers", ">= 2.1.0"
 gem "sidekiq"
@@ -30,6 +31,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "letter_opener"
+  gem "listen"
   gem "quiet_assets"
   gem "rack-livereload"
   gem "spring"
@@ -50,6 +52,7 @@ group :development do
   gem "rb-fsevent", :require => false
   gem "simplecov", :require => false
   gem "sshkit", "~> 1.7.1", :require => false
+  gem "terminal-notifier", :require => false
   gem "terminal-notifier-guard", :require => false
   gem "thin", :require => false
 end
