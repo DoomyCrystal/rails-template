@@ -1,5 +1,6 @@
 append_to_file "config/deploy.rb" do
   <<-VARS.strip_heredoc
+
     fetch(:mb_aptitude_packages).merge!(
       "imagemagick" => :all
     )
