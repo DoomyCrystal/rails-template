@@ -60,6 +60,8 @@ def apply_template!
     remove_file "app/view/layouts/base.html.haml"
   end
 
+  apply "variants/hosttech/template.rb" if apply_hosttech?
+
   unless preexisting_git_repo?
     git :add => "-A ."
     git :commit => "-n -m 'Set up project'"
@@ -182,6 +184,11 @@ end
 
 def apply_alchemycms?
   ask_with_default("Install and setup AlchemyCMS?", :blue, "no")\
+    =~ /^y(es)?/i
+end
+
+def apply_hosttech?
+  ask_with_default("Prepare app for Hosttech-Hosting?", :blue, "no")\
     =~ /^y(es)?/i
 end
 
