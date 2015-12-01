@@ -4,5 +4,6 @@ append_to_file "config/deploy.rb" do
   <<-VARS.strip_heredoc
     set :hosttech_server, "#{hosttech_server}"
     set :domain_name, "#{domain_name}"
+    set :mb_privileged_user, "administrator"
   VARS
 end
