@@ -57,7 +57,7 @@ def apply_template!
 
     # alchemy creates that stuff again
     remove_file "app/views/layouts/application.html.erb"
-    remove_file "app/view/layouts/base.html.haml"
+    remove_file "app/views/layouts/base.html.haml"
   end
 
   apply "variants/hosttech/template.rb" if apply_hosttech?
