@@ -18,14 +18,14 @@ upstream unicorn_<%= application_basename %> {
   <% end %>
 
   server {
-    listen <%= port %> <%= "spdy" if port == 443 %> default deferred; # for Linux
+    listen <%= port %> <%= "spdy" if port == 443 %>; # for Linux
 
     <% if port == 80 && fetch(:mb_nginx_force_https) %>
       rewrite ^(.*) https://$http_host$1 permanent;
     <% else %>
 
       client_max_body_size 4G;
-      server_name <%= application_basename %>.<%= fetch(:hosttech_server) %> <%= fetch(:domain_name) %>;
+      server_name <%= fetch(:domain_name) %>.<%= fetch(:hosttech_server) %> <%= fetch(:domain_name) %>;
 
       # ~2 seconds is often enough for most folks to parse HTML/CSS and
       # retrieve needed images/icons/frames, connections are cheap in
