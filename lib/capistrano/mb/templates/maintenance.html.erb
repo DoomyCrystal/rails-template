@@ -18,8 +18,8 @@
 <body>
     <h1>Wartungsarbeiten</h1>
 
-    <p>Unsere Server sind zurzeit offline aufgrund von <%= reason ? reason : "Wartungsarbeiten" %><br>
-           ab <%= Time.now.strftime("%H:%M %Z") %>.</p>
+    <p>Unsere Server sind zurzeit aufgrund von <%= reason ? reason : "Wartungsarbeiten" %> offline<br>
+           Beginnend ab <%= Time.now.strftime("%H:%M %Z") %>.</p>
 
     <p>Wird sind <%= deadline ? "am #{deadline}" : "bald" %> zurück für Sie.</p>
 </body>

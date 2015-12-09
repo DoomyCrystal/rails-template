@@ -7,7 +7,7 @@ copy_file "app/assets/stylesheets/utilities/lib.css.scss"
 copy_file "app/assets/stylesheets/utilities/variables.css.scss"
 copy_file "app/assets/stylesheets/utilities/block-grids.css.scss"
 copy_file "app/helpers/navbar_helper.rb"
-copy_file "app/views/layouts/application.html.haml", :force => true
+template "app/views/layouts/application.html.haml.tt", :force => true
 template "app/views/shared/_footer.html.haml.tt"
 template "app/views/shared/_navbar.html.haml.tt"
 copy_file "app/views/shared/_page_header.haml"
