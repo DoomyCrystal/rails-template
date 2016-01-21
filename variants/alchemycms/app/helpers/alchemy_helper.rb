@@ -60,19 +60,17 @@ module AlchemyHelper
     meta_string = %(
 <meta charset="UTF-8">
 #{render_title_tag(prefix: options[:title_prefix], separator: options[:title_separator])}
-#{render_meta_tag(name: "description", content: description)}
-#{render_meta_tag(name: "keywords", content: keywords)}
+    #{render_meta_tag(name: "description", content: description)}
+    #{render_meta_tag(name: "keywords", content: keywords)}
 <meta name="created" content="#{@page.updated_at}">
 <meta name="robots" content="#{robot}">
 <meta property="og:locale" content="#{@page.language.code}#{@page.language.country_code.blank? ? '' : "_#{@page.language.country_code.upcase}" }"">
 <meta property="og:type" content="website">
-<meta property="og:title" content="#{render_page_title(prefix: options[:title_prefix], separator: options[:title_separator])}">
-<meta property="og:description" content="#{description}">
-<meta property="og:url" content="#{request.original_url}">
+<meta name="twitter:title" property="og:title" content="#{render_page_title(prefix: options[:title_prefix], separator: options[:title_separator])}">
+<meta name="twitter:description" property="og:description" content="#{description}">
+<meta name="twitter:url" property="og:url" content="#{request.original_url}">
 <meta property="og:site_name" content="#{t('meta_title', default: "")}">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:description" content="#{description}">
-<meta name="twitter:title" content="#{render_page_title(prefix: options[:title_prefix], separator: options[:title_separator])}">
 <meta name="twitter:domain" content="#{t('meta_title', default: "")}">
       )
     if @page.contains_feed?
