@@ -26,7 +26,7 @@ module AlchemyHelper
   #   <meta property="og:type" content="website">
   #   <meta property="og:title" content="Homepage">
   #   <meta property="og:description" content="Your page description">
-  #   <meta property="og:url" content="http://ww.company.com">
+  #   <meta property="og:url" content="http://www.company.com">
   #   <meta property="og:site_name" content="Company">
   #   <meta name="twitter:card" content="summary">
   #   <meta name="twitter:description" content="Your page description">
@@ -81,6 +81,23 @@ module AlchemyHelper
         )
     end
     meta_string.html_safe
+  end
+
+  # Automatically adds srcset with 1x and 2x to the image_tag from an ingredient (EssencePicture) and a default size.
+  #
+  #   = retina_image_tag(el.ingredient(:picture), '200x400', 'some alt text')
+  #
+  # Produces:
+  #
+  #   <img src="/path/to/picture/200x400/cropped.jpg"
+  #        srcset="/path/to/picture/200x400/cropped.jpg 1x,/path/to/picture/400x800/cropped.jpg 2x" alt="some alt text">
+  #
+  def retina_image_tag(ingredient, image_size, options={})
+    width, height = image_size.split /x/
+    default_img = show_alchemy_picture_path(ingredient, size: image_size, crop: true)
+    retina_img = show_alchemy_picture_path(ingredient, size: "#{width.to_i*2}x#{height.to_i*2}", crop: true)
+
+    image_tag default_img, options.reverse_merge(srcset: "#{default_img} 1x,#{retina_img} 2x", alt: '')
   end
 
 end

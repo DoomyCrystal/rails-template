@@ -1,0 +1,5 @@
+- @pages.order(:depth, :lft).each do |page|
+  %url
+    %loc= show_alchemy_page_url page
+    %lastmod= page.updated_at.utc.iso8601
+    %priority= page.level == 1 ? '1.0' : (1.0 - page.level.to_f/10).to_s

@@ -14,4 +14,19 @@ module LayoutHelper
     output = render(:file => "layouts/#{layout}")
     self.output_buffer = ActionView::OutputBuffer.new(output)
   end
+
+  # Embeds an svg directly into the DOM. Use paths as known with any asset-helper within rails.
+  #
+  # Usage:
+  #
+  #     = embedded_svg "logo.svg", class: "my-svg-class"
+  #
+  def embedded_svg(filename, options = {})
+    file = Rails.application.assets.find_asset(filename).body.force_encoding("UTF-8")
+    doc = Nokogiri::HTML::DocumentFragment.parse file
+    if options[:class].present?
+      doc.at_css("svg")["class"] = options[:class]
+    end
+    raw doc
+  end
 end
