@@ -7,7 +7,7 @@ namespace :hosting do
         'delayed_job:init_d', 'dotenv:update', 'logrotate', 'nginx:configure',
         'postgresql:create_user', 'postgresql:create_database', 'postgresql:database_yml', 'postgresql:pgpass',
         'postgresql:logrotate_backup', 'ssl:generate_dh', 'ssl:generate_self_signed_crt',
-        'unicorn:init_d', 'unicorn:config_rb', 'nginx:restart'
+        'unicorn:init_d', 'unicorn:config_rb', 'newrelic:newrelic_yml', 'nginx:restart'
     ].each do |task|
       invoke "mb:#{task}"
     end
