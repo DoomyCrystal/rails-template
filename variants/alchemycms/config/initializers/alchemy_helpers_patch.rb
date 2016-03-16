@@ -16,11 +16,13 @@ Alchemy::EssencesHelper.module_eval do
       options[:format] = :png
       format = :png
     end
-    width, height = options[:image_size].split /x/
-    if width || height
-      default_img = show_alchemy_picture_path(content.ingredient, size: options[:image_size], crop: true, format: format)
-      retina_img = show_alchemy_picture_path(content.ingredient, size: "#{width ? width.to_i*2 : '' }x#{height ? height.to_i*2 : ''}", crop: true, format: format)
-      srcset = "#{default_img} 1x, #{retina_img} 2x"
+    if options[:image_size].present?
+      width, height = options[:image_size].split /x/
+      if width || height
+        default_img = show_alchemy_picture_path(content.ingredient, size: options[:image_size], crop: true, format: format)
+        retina_img = show_alchemy_picture_path(content.ingredient, size: "#{width ? width.to_i*2 : '' }x#{height ? height.to_i*2 : ''}", crop: true, format: format)
+        srcset = "#{default_img} 1x, #{retina_img} 2x"
+      end
     end
 
     img_tag = image_tag(
