@@ -17,9 +17,9 @@
     %meta(name="apple-mobile-web-app-title" content="#{t('meta_title')}")
 
     = csrf_meta_tags
-  %body
-    /[if lt IE 9]
-      <p class="browserupgrade">
+  %body.page{class: "page--#{@page.page_layout}"}
+    /[if lt IE 10]
+      <p class="browse-happy">
       Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href="http://browsehappy.com/">aktualisieren Sie
       Ihren Browser</a>
       um diese Seite optimal darzustellen.

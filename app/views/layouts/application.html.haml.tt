@@ -24,8 +24,8 @@
       = strip_tags(yield(:title)) + " – " if content_for?(:title)
       <%= app_const_base.titleize %>
   %body
-    /[if lt IE 9]
-      <p class="browserupgrade">
+    /[if lt IE 10]
+      <p class="browse-happy">
       Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href="http://browsehappy.com/">aktualisieren Sie
       Ihren Browser</a>
       um diese Seite optimal darzustellen.

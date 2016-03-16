@@ -1,11 +1,11 @@
-.navbar.navbar-default.navbar-static-top{:role => "navigation"}
+.navbar.navbar-default.navbar-static-top{role: 'navigation'}
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle{'data-target' => '.navbar-collapse', 'data-toggle' => 'collapse', type: 'button'}
         %span.sr-only Navigation ein-/ausblenden
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to("<%= app_const_base.titleize %>", root_path, :class => "navbar-brand")
+      = link_to('<%= app_const_base.titleize %>', root_path, class: 'navbar-brand')
     .navbar-collapse.collapse
       = render_navigation({}, {class: 'nav navbar-nav navbar-right'})
