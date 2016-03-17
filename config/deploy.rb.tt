@@ -11,8 +11,8 @@ fetch(:mb_aptitude_packages).merge!(
 
 set :mb_dotenv_keys, %w(
   rails_secret_key_base
-  mandrill_username
-  mandrill_api_key
+  mailgun_domain
+  mailgun_api_key
 )
 
 set :mb_newrelic_license_key, "<%= new_relic_license_key %>"

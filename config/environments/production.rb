@@ -20,16 +20,11 @@ insert_into_file "config/environments/production.rb",
                  :after => /# config\.action_mailer\.raise_deliv.*\n/ do
   <<-RUBY
 
-  # Production Mandrill SMTP config
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address => "smtp.mandrillapp.com",
-    :port => 587,
-    :enable_starttls_auto => true,
-    :user_name => ENV.fetch("MANDRILL_USERNAME"),
-    :password => ENV.fetch("MANDRILL_API_KEY"),
-    :authentication => "login",
-    :domain => "#{production_hostname}"
+  # Production Mailgun config
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: ENV.fetch('MAILGUN_API_KEY'),
+      domain: "#{production_hostname}"
   }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {
