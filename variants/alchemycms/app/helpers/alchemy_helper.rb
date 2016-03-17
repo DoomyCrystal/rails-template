@@ -35,67 +35,75 @@ module AlchemyHelper
   #
   def render_extended_meta_data options={}
     if @page.blank?
-      warning("No Page found!")
+      warning('No Page found!')
       return nil
     end
     default_options = {
         title_prefix: t('meta_title', default: ""),
-        title_separator: " - ",
-        default_lang: "de"
+        title_separator: ' - ',
+        default_lang: 'de'
     }
     options = default_options.merge(options)
     # render meta description of the root page from language if the current meta description is empty
     if @page.meta_description.blank?
-      description = @root_page.try(:meta_description)
+      description = Alchemy::Language.current_root_page.try(:meta_description)
     else
       description = @page.meta_description
     end
     # render meta keywords of the root page from language if the current meta keywords is empty
     if @page.meta_keywords.blank?
-      keywords = @root_page.try(:meta_keywords)
+      keywords = Alchemy::Language.current_root_page.try(:meta_keywords)
     else
       keywords = @page.meta_keywords
     end
-    robot = "#{@page.robot_index? ? "" : "no"}index, #{@page.robot_follow? ? "" : "no"}follow"
     meta_string = %(
-<meta charset="UTF-8">
-#{render_title_tag(prefix: options[:title_prefix], separator: options[:title_separator])}
-    #{render_meta_tag(name: "description", content: description)}
-    #{render_meta_tag(name: "keywords", content: keywords)}
-<meta name="created" content="#{@page.updated_at}">
-<meta name="robots" content="#{robot}">
-<meta property="og:locale" content="#{@page.language.code}#{@page.language.country_code.blank? ? '' : "_#{@page.language.country_code.upcase}" }"">
-<meta property="og:type" content="website">
-<meta name="twitter:title" property="og:title" content="#{render_page_title(prefix: options[:title_prefix], separator: options[:title_separator])}">
-<meta name="twitter:description" property="og:description" content="#{description}">
-<meta name="twitter:url" property="og:url" content="#{request.original_url}">
-<meta property="og:site_name" content="#{t('meta_title', default: "")}">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:domain" content="#{t('meta_title', default: "")}">
+      #{tag(:meta, charset: 'utf-8')}
+      #{render_title_tag(prefix: options[:title_prefix], separator: options[:title_separator])}
+      #{render_meta_tag(name: 'created', content: @page.updated_at)}
+      #{render_meta_tag(name: 'robots', content: "#{@page.robot_index? ? "" : "no"}index, #{@page.robot_follow? ? "" : "no"}follow")}
+      #{tag(:meta, property: 'og:locale', content: "#{@page.language.code}#{@page.language.country_code.blank? ? '' : "_#{@page.language.country_code.upcase}" }")}
+      #{tag(:meta, property: 'og:type', content: 'website')}
+      #{tag(:meta, name: 'twitter:title', property: 'og:title', content: render_page_title(prefix: options[:title_prefix], separator: options[:title_separator]))}
+      #{tag(:meta, name: 'twitter:url', property: 'og:url', content: request.original_url)}
+      #{tag(:meta, property: 'og:site_name', content: t('meta_title', default: ''))}
+      #{tag(:meta, name: 'twitter:card', content: 'summary')}
+      #{tag(:meta, name: 'twitter:domain', content: t('meta_title', default: ''))}
+    )
+    if description.present?
+      meta_string += %(
+        #{render_meta_tag(name: 'description', content: description.html_safe)}
+        #{tag(:meta, name: 'twitter:description', property: 'og:description', content: description.html_safe)}
       )
+    end
+    if keywords.present?
+      meta_string += %(
+        #{render_meta_tag(name: 'keywords', content: keywords)}
+      )
+    end
     if @page.contains_feed?
       meta_string += %(
-          <link rel="alternate" type="application/rss+xml" title="RSS" href="#{show_alchemy_page_url(@page, format: :rss)}">
-        )
+        #{auto_discovery_link_tag(:rss, show_alchemy_page_url(@page, format: :rss))}
+      )
     end
     meta_string.html_safe
   end
 
-  # Automatically adds srcset with 1x and 2x to the image_tag from an ingredient (EssencePicture) and a default size.
+  # Returns just the url to a picture but with the correct format as the original render_essence_picture_view.
   #
-  #   = retina_image_tag(el.ingredient(:picture), '200x400', 'some alt text')
+  #   = ingredient_background_url(el.ingredient(:picture), image_size: '200x400', crop: true, format: :png)
   #
   # Produces:
   #
-  #   <img src="/path/to/picture/200x400/cropped.jpg"
-  #        srcset="/path/to/picture/200x400/cropped.jpg 1x,/path/to/picture/400x800/cropped.jpg 2x" alt="some alt text">
+  #   www.example.com/path/to/picture/200x400/cropped.png
   #
-  def retina_image_tag(ingredient, image_size, options={})
-    width, height = image_size.split /x/
-    default_img = show_alchemy_picture_path(ingredient, size: image_size, crop: true)
-    retina_img = show_alchemy_picture_path(ingredient, size: "#{width.to_i*2}x#{height.to_i*2}", crop: true)
+  def ingredient_background_url(ingredient, options)
+    options = ingredient.content.settings.update(options)
 
-    image_tag default_img, options.reverse_merge(srcset: "#{default_img} 1x,#{retina_img} 2x", alt: '')
+    if ingredient.image_file.mime_type.end_with?('png')
+      options[:format] = :png
+    end
+
+    show_alchemy_picture_url(ingredient, options)
   end
 
 end
