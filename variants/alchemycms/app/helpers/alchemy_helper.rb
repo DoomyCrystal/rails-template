@@ -90,20 +90,22 @@ module AlchemyHelper
 
   # Returns just the url to a picture but with the correct format as the original render_essence_picture_view.
   #
-  #   = ingredient_background_url(el.ingredient(:picture), image_size: '200x400', crop: true, format: :png)
+  #   = content_background_url(content, image_size: '200x400', crop: true, format: :png)
   #
   # Produces:
   #
   #   www.example.com/path/to/picture/200x400/cropped.png
   #
-  def ingredient_background_url(ingredient, options)
-    options = ingredient.content.settings.update(options)
+  def content_background_url(content, options)
+    options = content.settings.update(options)
 
-    if ingredient.image_file.mime_type.end_with?('png')
+    return unless content.ingredient
+
+    if content.ingredient.image_file.mime_type.end_with?('png')
       options[:format] = :png
     end
 
-    show_alchemy_picture_url(ingredient, options)
+    show_alchemy_picture_url(content.ingredient, options)
   end
 
 end
