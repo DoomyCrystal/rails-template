@@ -99,13 +99,13 @@ module AlchemyHelper
   def content_background_url(content, options)
     options = content.settings.update(options)
 
-    return unless content.ingredient
+    return if content.ingredient.blank?
 
     if content.ingredient.image_file.mime_type.end_with?('png')
       options[:format] = :png
     end
 
-    show_alchemy_picture_url(content.ingredient, options)
+    content.essence.picture_url(options)
   end
 
 end

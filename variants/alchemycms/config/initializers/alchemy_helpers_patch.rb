@@ -11,16 +11,15 @@ Alchemy::EssencesHelper.module_eval do
       caption = content_tag(:figcaption, content.essence.caption, id: "#{dom_id(content.ingredient)}_caption", class: "image_caption")
     end
 
-    format, srcset = :jpeg, nil
+    srcset = nil
     if content.ingredient.image_file.mime_type.end_with?('png')
       options[:format] = :png
-      format = :png
     end
     if options[:image_size].present?
       width, height = options[:image_size].split /x/
       if width || height
-        default_img = show_alchemy_picture_path(content.ingredient, size: options[:image_size], crop: true, format: format)
-        retina_img = show_alchemy_picture_path(content.ingredient, size: "#{width ? width.to_i*2 : '' }x#{height ? height.to_i*2 : ''}", crop: true, format: format)
+        default_img = content.essence.picture_url(options)
+        retina_img = content.essence.picture_url(options.update({size: "#{width ? width.to_i*2 : '' }x#{height ? height.to_i*2 : ''}"}))
         srcset = "#{default_img} 1x, #{retina_img} 2x"
       end
     end
