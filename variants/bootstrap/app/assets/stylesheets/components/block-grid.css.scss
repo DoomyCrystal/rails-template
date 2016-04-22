@@ -1,33 +1,29 @@
 @import "../globals/all", "bootstrap/mixins";
 
 [class*="block-grid-"] {
-  display: block;
+  display: flex;
+  flex-flow: row wrap;
   margin: -($grid-gutter-width/2);
   padding: 0;
-  @include clearfix();
+  max-width: 100%;
 }
 
 .block-grid-item {
-  display: inline;
   margin: 0;
   padding: ($grid-gutter-width/2);
   height: auto;
-  float: left;
   list-style: none;
 }
 
 @mixin block-grid ($per-row) {
   & > .block-grid-item {
-    width: (100%/$per-row);
-
-    $nth-equation: #{$per-row}n+'+'+1;
-    &:nth-of-type(n) { clear: none; }
-    &:nth-of-type(#{$nth-equation}) { clear: both; }
+    flex: 0 1 (100%/$per-row);
+    max-width: (100%/$per-row);
   }
 }
 
 @mixin block-grids($size) {
-  .block-grid-#{$size}-1  { @include block-grid(1);  }
+  .block-grid-#{$size}-1  { @include block-grid(1); margin-left: 0;   }
   .block-grid-#{$size}-2  { @include block-grid(2);  }
   .block-grid-#{$size}-3  { @include block-grid(3);  }
   .block-grid-#{$size}-4  { @include block-grid(4);  }

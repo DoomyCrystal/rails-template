@@ -4,7 +4,7 @@ append_to_file "config/deploy.rb" do
     fetch(:mb_aptitude_packages).merge!(
       "imagemagick" => :all
     )
-    set :linked_dirs, fetch(:linked_dirs, []).push('uploads')
+    set :linked_dirs, fetch(:linked_dirs, []) + %w(uploads/pictures uploads/attachments public/pictures)
 
     namespace :deploy do
       after :restart, :clear_cache do

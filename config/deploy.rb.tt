@@ -5,6 +5,7 @@ set :repo_url, "<%= git_repo_specified? ? git_repo_url : "TODO" %>"
 # For list of variables that can be customized, see:
 # https://github.com/mattbrictson/capistrano-mb/blob/master/lib/capistrano/tasks/defaults.rake
 
+fetch(:mb_recipes) << "newrelic"
 fetch(:mb_aptitude_packages).merge!(
   "redis-server@ppa:rwky/redis" => :redis
 )
