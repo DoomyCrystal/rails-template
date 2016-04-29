@@ -1,0 +1,7 @@
+set :branch, ENV.fetch("CAPISTRANO_BRANCH", "master")
+
+server "<%= production_hostname %>",
+       user: "<%= privileged_user %>",
+       port: 29992,
+       forward_agent: true,
+       roles: %w(app db web)

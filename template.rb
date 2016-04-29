@@ -62,6 +62,8 @@ def apply_template!
 
   apply "variants/hosttech/template.rb" if apply_hosttech?
 
+  apply "variants/oriented/template.rb" if apply_oriented?
+
   unless preexisting_git_repo?
     git :add => "-A ."
     git :commit => "-n -m 'Set up project'"
@@ -155,6 +157,11 @@ def new_relic_license_key
       ask_with_default("New Relic license key?", :blue, "skip")
 end
 
+def privileged_user
+  @privileged_user ||=
+      ask_with_default('SSH User?', :blue, 'wrr10705')
+end
+
 def gemfile_requirement(name)
   @original_gemfile ||= IO.read("Gemfile")
   req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*).*$/, 1]
@@ -189,6 +196,11 @@ end
 
 def apply_hosttech?
   ask_with_default("Prepare app for Hosttech-Hosting?", :blue, "no")\
+    =~ /^y(es)?/i
+end
+
+def apply_oriented?
+  ask_with_default("Prepare app for oriented.net Hosting?", :blue, "no")\
     =~ /^y(es)?/i
 end
 
