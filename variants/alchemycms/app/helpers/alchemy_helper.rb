@@ -27,11 +27,10 @@ module AlchemyHelper
   #   <meta property="og:title" content="Homepage">
   #   <meta property="og:description" content="Your page description">
   #   <meta property="og:url" content="http://www.company.com">
-  #   <meta property="og:site_name" content="Company">
   #   <meta name="twitter:card" content="summary">
   #   <meta name="twitter:description" content="Your page description">
   #   <meta name="twitter:title" content="Homepage">
-  #   <meta name="twitter:domain" content="Company">
+  #   <meta name="twitter:domain" property="og:site_name" content="Company">
   #
   def render_extended_meta_data options={}
     if @page.blank?
@@ -63,11 +62,10 @@ module AlchemyHelper
       #{render_meta_tag(name: 'robots', content: "#{@page.robot_index? ? "" : "no"}index, #{@page.robot_follow? ? "" : "no"}follow")}
       #{tag(:meta, property: 'og:locale', content: "#{@page.language.code}#{@page.language.country_code.blank? ? '' : "_#{@page.language.country_code.upcase}" }")}
       #{tag(:meta, property: 'og:type', content: 'website')}
-      #{tag(:meta, name: 'twitter:title', property: 'og:title', content: render_page_title(prefix: options[:title_prefix], separator: options[:title_separator]))}
+      #{tag(:meta, name: 'twitter:title', property: 'og:title', content: @page.title)}
       #{tag(:meta, name: 'twitter:url', property: 'og:url', content: request.original_url)}
-      #{tag(:meta, property: 'og:site_name', content: t('meta_title', default: ''))}
       #{tag(:meta, name: 'twitter:card', content: 'summary')}
-      #{tag(:meta, name: 'twitter:domain', content: t('meta_title', default: ''))}
+      #{tag(:meta, name: 'twitter:domain', property: 'og:site_name', content: t('meta_title', default: ''))}
     )
     if description.present?
       meta_string += %(
