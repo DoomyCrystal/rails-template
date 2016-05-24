@@ -22,7 +22,6 @@ module AlchemyHelper
   #   <meta name="keywords" content="cms, ruby, rubyonrails, rails, software, development, html, javascript, ajax">
   #   <meta name="created" content="Tue Dec 16 10:21:26 +0100 2008">
   #   <meta name="robots" content="index, follow">
-  #   <meta property="og:locale" content="de_CH">
   #   <meta property="og:type" content="website">
   #   <meta property="og:title" content="Homepage">
   #   <meta property="og:description" content="Your page description">
@@ -60,7 +59,6 @@ module AlchemyHelper
       #{render_title_tag(prefix: options[:title_prefix], separator: options[:title_separator])}
       #{render_meta_tag(name: 'created', content: @page.updated_at)}
       #{render_meta_tag(name: 'robots', content: "#{@page.robot_index? ? "" : "no"}index, #{@page.robot_follow? ? "" : "no"}follow")}
-      #{tag(:meta, property: 'og:locale', content: "#{@page.language.code}#{@page.language.country_code.blank? ? '' : "_#{@page.language.country_code.upcase}" }")}
       #{tag(:meta, property: 'og:type', content: 'website')}
       #{tag(:meta, name: 'twitter:title', property: 'og:title', content: @page.title)}
       #{tag(:meta, name: 'twitter:url', property: 'og:url', content: request.original_url)}
