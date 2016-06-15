@@ -11,9 +11,9 @@ append_to_file 'config/deploy.rb' do
       version
       newrelic
     )
-    set :deploy_to, 'var/www/#{domain_name}'
+    set :deploy_to, '/var/www/#{domain_name}'
     set :keep_releases, 3
-    set :mb_privileged_user, ''#{privileged_user}''
+    set :mb_privileged_user, '#{privileged_user}'
     set :mb_postgresql_database, '#{database}'
     set :mb_postgresql_user, '#{database_user}'
     set :mb_postgresql_host, '#{database_host}'
