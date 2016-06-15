@@ -18,7 +18,7 @@
 
     = csrf_meta_tags
   %body.page{class: "page--#{@page.page_layout}"}
-    /[if lt IE 10]
+    /[if lt IE 11]
       <p class="browse-happy">
       Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href="http://browsehappy.com/">aktualisieren Sie
       Ihren Browser</a>

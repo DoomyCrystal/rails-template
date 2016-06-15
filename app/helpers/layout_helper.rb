@@ -10,7 +10,7 @@ module LayoutHelper
   #   <svg class="svg svg--logo my-svg-class" ...>..</svg>
   #
   def embedded_svg(filename, options = {})
-    doc = Nokogiri::HTML::DocumentFragment.parse(Rails.application.assets.find_asset(filename).body.force_encoding('UTF-8'))
+    doc = Nokogiri::HTML::DocumentFragment.parse(File.read(Rails.root.join('app', 'assets', 'images', filename)))
     if options[:class].present?
       doc.at_css('svg')['class'] = "svg svg--#{File.basename(filename, ".*").parameterize} #{options[:class]}"
     else
