@@ -10,11 +10,6 @@ copy_file "app/assets/stylesheets/base.css.scss"
 copy_file "app/assets/stylesheets/layout.css.scss"
 remove_file "app/assets/stylesheets/application.css"
 
-insert_into_file "app/controllers/application_controller.rb",
-                 :after => /protect_from_forgery.*\n/ do
-  "  ensure_security_headers\n"
-end
-
 copy_file "app/controllers/home_controller.rb"
 copy_file "app/helpers/javascript_helper.rb"
 copy_file "app/helpers/layout_helper.rb"

@@ -1,4 +1,4 @@
-- if flash[:notice]
+- if flash[:notice].present?
   .alert.alert-success= flash[:notice]
-- if flash[:alert]
+- if flash[:alert].present?
   .alert.alert-danger= flash[:alert]
