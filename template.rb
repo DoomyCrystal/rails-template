@@ -40,9 +40,11 @@ def apply_template!
   generate_spring_binstubs
 
   binstubs = %w(
-    annotate brakeman bundler-audit capistrano guard terminal-notifier
+    annotate brakeman bundler-audit capistrano guard rubocop terminal-notifier
   )
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')}"
+  template "rubocop.yml.tt", ".rubocop.yml"
+  run_rubocop_autocorrections
 
   if apply_alchemycms?
     apply "variants/alchemycms/template.rb"
@@ -166,6 +168,10 @@ def gemfile_requirement(name)
   @original_gemfile ||= IO.read("Gemfile")
   req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*).*$/, 1]
   req && req.gsub("'", %(")).strip.sub(/^,\s*"/, ', "')
+end
+
+def run_rubocop_autocorrections
+  run_with_clean_bundler_env "bin/rubocop -a --fail-level A > /dev/null"
 end
 
 def ask_with_default(question, color, default)
