@@ -43,7 +43,7 @@ def apply_template!
     annotate brakeman bundler-audit capistrano guard rubocop terminal-notifier
   )
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')}"
-  template "rubocop.yml.tt", ".rubocop.yml"
+  template "rubocop.yml.tt", ".rubocop.yml", force: true
   run_rubocop_autocorrections
 
   if apply_alchemycms?
