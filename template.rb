@@ -55,14 +55,16 @@ def apply_template!
 
     run "bundle update"
     run "bin/rake alchemy:install"
-    run "bin/rails g alchemy:devise:install"
+    if apply_alchemycms_devise?
+      run "bin/rails g alchemy:devise:install"
+    end
 
     # alchemy creates that stuff again
     remove_file "app/views/layouts/application.html.erb"
     remove_file "app/views/layouts/base.html.haml"
   end
 
-  apply "variants/hosttech/template.rb" if apply_hosttech?
+  # apply "variants/hosttech/template.rb" if apply_hosttech?
 
   apply "variants/oriented/template.rb" if apply_oriented?
 
@@ -197,6 +199,11 @@ end
 
 def apply_alchemycms?
   ask_with_default("Install and setup AlchemyCMS?", :blue, "no")\
+    =~ /^y(es)?/i
+end
+
+def apply_alchemycms_devise?
+  ask_with_default("Setup AlchemyCMS Devise Authentication?", :blue, "no")\
     =~ /^y(es)?/i
 end
 
