@@ -1,4 +1,4 @@
-RAILS_REQUIREMENT = "~> 4.2.0"
+RAILS_REQUIREMENTS = [">= 4.2.0", "< 5.1"]
 
 def apply_template!
   assert_minimum_rails_version
@@ -98,12 +98,21 @@ def add_template_repository_to_source_path
   end
 end
 
-def assert_minimum_rails_version
-  requirement = Gem::Requirement.new(RAILS_REQUIREMENT)
+def rails4?
   rails_version = Gem::Version.new(Rails::VERSION::STRING)
-  return if requirement.satisfied_by?(rails_version)
+  Gem::Requirement.new("~> 4.0").satisfied_by?(rails_version)
+end
 
-  prompt = "This template requires Rails #{RAILS_REQUIREMENT}. "\
+def assert_minimum_rails_version
+  rails_version = Gem::Version.new(Rails::VERSION::STRING)
+
+  failed = RAILS_REQUIREMENTS.find do |expr|
+      requirement = Gem::Requirement.new(expr)
+      !requirement.satisfied_by?(rails_version)
+    end
+  return if failed.nil?
+
+  prompt = "This template requires Rails #{failed}. "\
            "You are using #{rails_version}. Continue anyway?"
   exit 1 if no?(prompt)
 end
@@ -166,7 +175,7 @@ end
 
 def gemfile_requirement(name)
   @original_gemfile ||= IO.read("Gemfile")
-  req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*).*$/, 1]
+  req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*)?.*$/, 1]
   req && req.gsub("'", %(")).strip.sub(/^,\s*"/, ', "')
 end
 
