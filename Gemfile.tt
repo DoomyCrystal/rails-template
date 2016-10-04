@@ -28,7 +28,6 @@ group :production, :staging do
 end
 
 group :development do
-  gem 'airbrussh', '~> 1.0', require:  false
   gem 'annotate', '>= 2.5.0'
   gem 'awesome_print'
   gem 'better_errors'
@@ -44,18 +43,26 @@ group :development do
   gem 'guard', '>= 2.2.2', require:  false
   gem 'guard-livereload', require:  false
   gem 'letter_opener'
-  gem 'listen'
+  gem "listen"<%= gemfile_requirement("listen") %>
+<% if gemfile_requirement("puma") -%>
+  gem "puma"<%= gemfile_requirement("puma") %>
+<% end -%>
   gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rails_real_favicon'
   gem 'rb-fsevent', require:  false
-  gem 'rubocop', '>= 0.50.0',  require:  false
+  gem 'rubocop', require:  false
   gem 'simplecov', require:  false
   gem 'spring'
   gem 'sshkit', '~> 1.8', require:  false
+<% if gemfile_requirement("spring-watcher-listen") -%>
+  gem "spring-watcher-listen"<%= gemfile_requirement("spring-watcher-listen") %>
+<% end -%>
   gem 'terminal-notifier', require:  false
   gem 'terminal-notifier-guard', require:  false
-  gem 'thin', require:  false
+<% unless gemfile_requirement("puma") -%>
+  gem "thin", :require => false
+<% end -%>
   # gem 'xray-rails', '>= 0.1.18'
 end
 
