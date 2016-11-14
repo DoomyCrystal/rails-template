@@ -62,6 +62,10 @@ def apply_template!
     # alchemy creates that stuff again
     remove_file "app/views/layouts/application.html.erb"
     remove_file "app/views/layouts/base.html.haml"
+    remove_file "app/assets/stylesheets/application.css"
+
+    # recreate db, as there is always set the wrong main language
+    run "bin/rake db:reset"
   end
 
   # apply "variants/hosttech/template.rb" if apply_hosttech?
@@ -91,9 +95,9 @@ def add_template_repository_to_source_path
     source_paths.unshift(tempdir = Dir.mktmpdir("rails-template-"))
     at_exit { FileUtils.remove_entry(tempdir) }
     git :clone => [
-      "--quiet",
-      "https://github.com/m43nu/rails-template.git",
-      tempdir
+        "--quiet",
+        "https://github.com/m43nu/rails-template.git",
+        tempdir
     ].map(&:shellescape).join(" ")
   else
     source_paths.unshift(File.dirname(__FILE__))
@@ -113,11 +117,11 @@ end
 # Bail out if user has passed in contradictory generator options.
 def assert_valid_options
   valid_options = {
-    :skip_gemfile => false,
-    :skip_bundle => false,
-    :skip_git => false,
-    :skip_test_unit => false,
-    :edge => false
+      :skip_gemfile => false,
+      :skip_bundle => false,
+      :skip_git => false,
+      :skip_test_unit => false,
+      :edge => false
   }
   valid_options.each do |key, expected|
     next unless options.key?(key)
@@ -143,17 +147,17 @@ end
 
 def git_repo_url
   @git_repo_url ||=
-    ask_with_default("What is the git remote URL for this project?", :blue, "skip")
+      ask_with_default("What is the git remote URL for this project?", :blue, "skip")
 end
 
 def production_hostname
   @production_hostname ||=
-    ask_with_default("Production hostname?", :blue, "example.com")
+      ask_with_default("Production hostname?", :blue, "example.com")
 end
 
 def staging_hostname
   @staging_hostname ||=
-    ask_with_default("Staging hostname?", :blue, "staging.example.com")
+      ask_with_default("Staging hostname?", :blue, "staging.example.com")
 end
 
 def new_relic_license_key
@@ -203,8 +207,9 @@ def apply_alchemycms?
 end
 
 def apply_alchemycms_devise?
-  ask_with_default("Setup AlchemyCMS Devise Authentication?", :blue, "no")\
-    =~ /^y(es)?/i
+  @apply_alchemycms_devise ||=
+      ask_with_default("Setup AlchemyCMS Devise Authentication?", :blue, "no")\
+      =~ /^y(es)?/i
 end
 
 def apply_hosttech?
