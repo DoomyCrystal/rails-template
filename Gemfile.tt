@@ -25,7 +25,6 @@ gem 'google-webfonts-rails'
 group :production, :staging do
   gem "unicorn"
   gem "unicorn-worker-killer"
-  gem "newrelic_rpm"
   gem 'mailgun_rails'
 end
 
