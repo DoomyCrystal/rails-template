@@ -73,7 +73,7 @@ def apply_template!
 
   apply 'variants/oriented/template.rb' if apply_oriented?
 
-  unless preexisting_git_repo?
+  if empty_git_repo?
     git add: '-A .'
     git commit: "-n -m 'Set up project'"
     git checkout: '-b development'
@@ -196,6 +196,11 @@ end
 def preexisting_git_repo?
   @preexisting_git_repo ||= (File.exist?(".git") || :nope)
   @preexisting_git_repo == true
+end
+
+def empty_git_repo?
+  return @empty_git_repo if defined?(@empty_git_repo)
+  @empty_git_repo = !system("git rev-list -n 1 --all &> /dev/null")
 end
 
 def apply_bootstrap?

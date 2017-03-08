@@ -13,3 +13,5 @@ set :mb_dotenv_keys, %w(
   mailgun_api_key
   redis_url
 )
+
+after "deploy:published", "bundler:clean"

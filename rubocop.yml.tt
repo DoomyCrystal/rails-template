@@ -18,6 +18,11 @@ Metrics/AbcSize:
   Exclude:
     - "spec/**/*"
 
+Metrics/BlockLength:
+  Exclude:
+    - "config/**/*"
+    - "test/**/*"
+
 Metrics/ClassLength:
   Exclude:
     - "spec/**/*"
@@ -32,6 +37,9 @@ Metrics/MethodLength:
   Exclude:
     - "db/migrate/*"
     - "spec/**/*"
+
+Performance/Casecmp:
+  Enabled: false
 
 Rails:
   Enabled: true
@@ -61,11 +69,17 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
+
+Style/NumericPredicate:
+  Enabled: false
 
 Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
