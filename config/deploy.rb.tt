@@ -5,9 +5,7 @@ set :repo_url, "<%= git_repo_specified? ? git_repo_url : "TODO" %>"
 # For list of variables that can be customized, see:
 # https://github.com/mattbrictson/capistrano-mb/blob/master/lib/capistrano/tasks/defaults.rake
 
-fetch(:mb_aptitude_packages).merge!(
-  "redis-server@ppa:rwky/redis" => :redis
-)
+fetch(:mb_aptitude_packages)['redis-server@ppa:chris-lea/redis-server'] = :redis
 
 set :mb_dotenv_keys, %w(
   rails_secret_key_base
