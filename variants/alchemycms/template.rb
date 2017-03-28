@@ -7,3 +7,4 @@ copy_file "app/helpers/alchemy_helper.rb", force: true
 template "app/views/layouts/application.html.haml.tt", force: true
 template "app/views/shared/_navbar.html.haml.tt", force: true
 apply "config/deploy.rb"
+copy_file "config/sitemap.rb", force: true
