@@ -1,4 +1,3 @@
-apply "app/assets/javascripts/application.js.rb"
 copy_file "app/assets/stylesheets/components/browse-happy.css.scss"
 copy_file "app/assets/stylesheets/components/svg.css.scss"
 copy_file "app/assets/stylesheets/globals/_all.scss"

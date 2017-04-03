@@ -68,8 +68,6 @@ def apply_template!
     run "bin/rake db:reset"
   end
 
-  # apply "variants/hosttech/template.rb" if apply_hosttech?
-
   apply "variants/oriented/template.rb" if apply_oriented?
 
   unless preexisting_git_repo?
@@ -210,11 +208,6 @@ def apply_alchemycms_devise?
   @apply_alchemycms_devise ||=
       ask_with_default("Setup AlchemyCMS Devise Authentication?", :blue, "no")\
       =~ /^y(es)?/i
-end
-
-def apply_hosttech?
-  ask_with_default("Prepare app for Hosttech-Hosting?", :blue, "no")\
-    =~ /^y(es)?/i
 end
 
 def apply_oriented?
