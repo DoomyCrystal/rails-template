@@ -16,11 +16,11 @@ AllCops:
 
 Metrics/AbcSize:
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
 
 Metrics/ClassLength:
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
 
 Metrics/LineLength:
   Exclude:
@@ -31,7 +31,7 @@ Metrics/MethodLength:
   Max: 12
   Exclude:
     - "db/migrate/*"
-    - "test/**/*"
+    - "spec/**/*"
 
 Rails:
   Enabled: true
@@ -53,7 +53,7 @@ Style/Documentation:
     - "app/models/application_record.rb"
     - "config/**/*"
     - "db/**/*"
-    - "test/**/*"
+    - "spec/**/*"
 
 Style/DoubleNegation:
   Enabled: false

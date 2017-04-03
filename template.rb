@@ -15,6 +15,7 @@ def apply_template!
 
   template "example.env.tt"
   copy_file "gitignore", ".gitignore", :force => true
+  copy_file 'rspec', '.rspec', force: true
   copy_file "jenkins-ci.sh", :mode => :preserve
   copy_file "rubocop.yml", ".rubocop.yml"
   template "ruby-version.tt", ".ruby-version"
@@ -30,7 +31,7 @@ def apply_template!
   apply "doc/template.rb"
   apply "lib/template.rb"
   apply "public/template.rb"
-  apply "test/template.rb"
+  apply "spec/template.rb"
 
   apply "variants/bootstrap/template.rb" if apply_bootstrap?
   git :init unless preexisting_git_repo?
@@ -118,7 +119,6 @@ def assert_valid_options
       :skip_gemfile => false,
       :skip_bundle => false,
       :skip_git => false,
-      :skip_test_unit => false,
       :edge => false
   }
   valid_options.each do |key, expected|
