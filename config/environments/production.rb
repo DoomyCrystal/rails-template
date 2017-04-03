@@ -7,8 +7,9 @@ insert_into_file "config/environments/production.rb",
 
   # Disable minification since it adds a *huge* amount of time to precompile.
   # Anyway, gzip alone gets us about 70% of the benefits of minify+gzip.
-  config.assets.js_compressor = false
-  config.assets.css_compressor = false
+  # UPDATE: we re-enable it for a time to watch how it performs.
+  config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = :sass
   RUBY
 end
 

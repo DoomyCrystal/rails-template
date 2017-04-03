@@ -4,6 +4,8 @@
     <!-- <%= app_const_base.titleize %>  #{Rails.application.config.version} (#{l(Rails.application.config.version_time)}) -->
     = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track' => true)
     = javascript_include_async_tag('application', 'data-turbolinks-track' => true)
+    :javascript
+      function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
 
     = yield(:head)
 
@@ -25,7 +27,7 @@
       <%= app_const_base.titleize %>
   %body
     /[if lt IE 11]
-      <p class="browserupgrade">
+      <p class="browse-happy">
       Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href="http://browsehappy.com/">aktualisieren Sie
       Ihren Browser</a>
       um diese Seite optimal darzustellen.

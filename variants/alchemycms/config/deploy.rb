@@ -11,6 +11,7 @@ append_to_file 'config/deploy.rb' do
         on roles(:web) do
           within release_path do
             execute :rake, 'tmp:clear'
+            execute :rake, 'sitemap:create'
           end
         end
       end
