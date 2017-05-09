@@ -48,7 +48,6 @@ group :development do
 <% if gemfile_requirement("puma") -%>
   gem "puma"<%= gemfile_requirement("puma") %>
 <% end -%>
-  gem 'quiet_assets'
   gem 'rack-livereload'
   gem 'rails_real_favicon'
   gem 'rb-fsevent', require:  false
