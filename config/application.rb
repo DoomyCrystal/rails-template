@@ -17,11 +17,6 @@ insert_into_file "config/application.rb", :before => /^  end/ do
 
     config.i18n.default_locale = :de
 
-    # Bootscale needs this to prevent stale cache
-    initializer :regenerate_require_cache, :before => :load_environment_config do
-     Bootscale.regenerate
-    end
-
     # Ensure non-standard paths are eager-loaded in production
     # (these paths are also autoloaded in development mode)
     # config.eager_load_paths += %W(#{config.root}/lib)
