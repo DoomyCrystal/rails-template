@@ -3,27 +3,28 @@ source "https://rubygems.org"
 gem "active_type", ">= 0.3.2"
 gem "autoprefixer-rails", ">= 5.0.0.1"
 gem "bcrypt"<%= gemfile_requirement("bcrypt") %>
+gem "bootsnap", ">= 1.1.0", :require => false
 gem "coffee-rails"<%= gemfile_requirement("coffee-rails") %>
 gem "dotenv-rails", ">= 2.0.0"
+gem 'google-webfonts-rails'
+gem "haml-rails", "~> 0.9"
 gem "jquery-rails"<%= gemfile_requirement("jquery-rails") %>
 gem "mail", ">= 2.6.3"
 gem "marco-polo"
 gem "pg"<%= gemfile_requirement("pg") || ', "~> 0.18"' %>
 gem "rails", "<%= Rails.version %>"
+gem "rails-i18n"
 gem "redis-namespace"
 gem "sass-rails"<%= gemfile_requirement("sass-rails") %>
-gem 'uglifier'
 gem "secure_headers", "~> 3.0"
 gem "sinatra", ">= 1.3.0", :require => false
 gem "turbolinks"<%= gemfile_requirement("turbolinks") || ', ">= 2.5.2"' %>
-gem "haml-rails", "~> 0.9"
-gem "rails-i18n"
-gem 'google-webfonts-rails'
+gem 'uglifier'
 
 group :production, :staging do
+  gem 'mailgun_rails'
   gem "unicorn"
   gem "unicorn-worker-killer"
-  gem 'mailgun_rails'
 end
 
 group :development do
@@ -45,6 +46,7 @@ group :development do
   gem "listen"
   gem "quiet_assets"
   gem "rack-livereload"
+  gem 'rails_real_favicon'
   gem "rb-fsevent", :require => false
   gem "rubocop", :require => false
   gem "simplecov", :require => false
@@ -54,20 +56,19 @@ group :development do
   gem "terminal-notifier-guard", :require => false
   gem "thin", :require => false
   gem "xray-rails", ">= 0.1.18"
-  gem 'rails_real_favicon'
 end
 
 group :test do
   gem "capybara"
   gem "connection_pool"
+  gem 'database_cleaner'
   gem "launchy"
   gem "poltergeist"
   gem "shoulda"
-  gem 'database_cleaner'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'rspec-rails', '~> 3.5'
 end
