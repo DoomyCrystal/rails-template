@@ -1,8 +1,8 @@
-gsub_file "config/application.rb",
+gsub_file 'config/application.rb',
           "# config.time_zone = 'Central Time (US & Canada)'",
           'config.time_zone = "Europe/Berlin"'
 
-insert_into_file "config/application.rb", :before => /^  end/ do
+insert_into_file 'config/application.rb', before: /^  end/ do
   <<-'RUBY'
     config.generators do |g|
       g.test_framework :rspec,

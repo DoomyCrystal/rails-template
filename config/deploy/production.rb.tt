@@ -1,5 +1,5 @@
-set :branch, ENV.fetch("CAPISTRANO_BRANCH", "master")
+set :branch, ENV.fetch('CAPISTRANO_BRANCH', 'master')
 
-server "<%= production_hostname %>",
-       :user => "deployer",
-       :roles => %w(app backup cron db redis web)
+server '<%= production_hostname %>',
+       user: 'deployer',
+       roles: %w[app backup cron db redis web]

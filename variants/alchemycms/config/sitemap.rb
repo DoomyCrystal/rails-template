@@ -5,7 +5,7 @@ SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
   Alchemy::Language.published.pluck(:language_code).each do |locale|
-    group(:filename => locale) do
+    group(filename: locale) do
       Alchemy::Page.sitemap.where(language_code: locale).find_each do |page|
         add show_page_path({urlname: page.urlname, locale: locale}), lastmod: page.updated_at
       end

@@ -1,4 +1,4 @@
-RAILS_REQUIREMENT = "~> 4.2.0"
+RAILS_REQUIREMENT = '~> 4.2.0'
 
 def apply_template!
   assert_minimum_rails_version
@@ -6,84 +6,86 @@ def apply_template!
   assert_postgresql
   add_template_repository_to_source_path
 
-  template "Gemfile.tt", :force => true
+  template 'Gemfile.tt', force: true
 
-  template "DEPLOYMENT.md.tt"
-  template "PROVISIONING.md.tt"
-  template "README.md.tt", :force => true
-  remove_file "README.rdoc"
+  template 'DEPLOYMENT.md.tt'
+  template 'PROVISIONING.md.tt'
+  template 'README.md.tt', force: true
+  remove_file 'README.rdoc'
 
-  template "example.env.tt"
-  copy_file "gitignore", ".gitignore", :force => true
+  template 'example.env.tt'
+  copy_file 'gitignore', '.gitignore', force: true
   copy_file 'rspec', '.rspec', force: true
-  copy_file "jenkins-ci.sh", :mode => :preserve
-  copy_file "rubocop.yml", ".rubocop.yml"
-  template "ruby-version.tt", ".ruby-version"
-  copy_file "simplecov", ".simplecov"
+  copy_file 'jenkins-ci.sh', mode: :preserve
+  copy_file 'rubocop.yml', '.rubocop.yml'
+  template 'ruby-version.tt', '.ruby-version'
+  copy_file 'simplecov', '.simplecov'
 
-  copy_file "Capfile"
-  copy_file "Guardfile"
+  copy_file 'Capfile'
+  copy_file 'Guardfile'
 
-  apply "config.ru.rb"
-  apply "app/template.rb"
-  apply "bin/template.rb"
-  apply "config/template.rb"
-  apply "doc/template.rb"
-  apply "lib/template.rb"
-  apply "public/template.rb"
-  apply "spec/template.rb"
+  apply 'config.ru.rb'
+  apply 'app/template.rb'
+  apply 'bin/template.rb'
+  apply 'config/template.rb'
+  apply 'doc/template.rb'
+  apply 'lib/template.rb'
+  apply 'public/template.rb'
+  apply 'spec/template.rb'
 
-  apply "variants/bootstrap/template.rb" if apply_bootstrap?
+  apply 'variants/bootstrap/template.rb' if apply_bootstrap?
   git :init unless preexisting_git_repo?
-  empty_directory ".git/safe"
+  empty_directory '.git/safe'
 
-  run_with_clean_bundler_env "bin/setup"
+  run_with_clean_bundler_env 'bin/setup'
   generate_spring_binstubs
 
-  binstubs = %w(
+  binstubs = %w[
     annotate brakeman bundler-audit capistrano guard rubocop terminal-notifier
-  )
+  ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')}"
-  template "rubocop.yml.tt", ".rubocop.yml", force: true
+  template 'rubocop.yml.tt', '.rubocop.yml', force: true
   run_rubocop_autocorrections
 
   if apply_alchemycms?
-    apply "variants/alchemycms/template.rb"
+    apply 'variants/alchemycms/template.rb'
 
-    remove_file "app/controllers/home_controller.rb"
-    remove_file "app/views/home/index.html.haml"
-    Dir.delete File.expand_path("app/views/home", destination_root)
+    remove_file 'app/controllers/home_controller.rb'
+    remove_file 'app/views/home/index.html.haml'
+    Dir.delete File.expand_path('app/views/home', destination_root)
 
-    run "bundle update"
-    run "bin/rake alchemy:install"
+    run 'bundle update'
+    run 'bin/rake alchemy:install'
     if apply_alchemycms_devise?
-      run "bin/rails g alchemy:devise:install"
+      run 'bin/rails g alchemy:devise:install'
     end
 
     # alchemy creates that stuff again
-    remove_file "app/views/layouts/application.html.erb"
-    remove_file "app/views/layouts/base.html.haml"
-    remove_file "app/assets/stylesheets/application.css"
+    remove_file 'app/views/layouts/application.html.erb'
+    remove_file 'app/views/layouts/base.html.haml'
+    remove_file 'app/assets/stylesheets/application.css'
+    # copy our customized config-file
+    template 'config/alchemy/config.yml.tt', force: true
 
-    # recreate db, as there is always set the wrong main language
-    run "bin/rake db:reset"
+    # recreate db, as the main language seems to be set tot the wrong one
+    run 'bin/rake db:reset'
   end
 
-  apply "variants/oriented/template.rb" if apply_oriented?
+  apply 'variants/oriented/template.rb' if apply_oriented?
 
   unless preexisting_git_repo?
-    git :add => "-A ."
-    git :commit => "-n -m 'Set up project'"
-    git :checkout => "-b development"
+    git add: '-A .'
+    git commit: "-n -m 'Set up project'"
+    git checkout: '-b development'
     if git_repo_specified?
-      git :remote => "add origin #{git_repo_url.shellescape}"
-      git :push => "-u origin --all"
+      git remote: "add origin #{git_repo_url.shellescape}"
+      git push: '-u origin --all'
     end
   end
 end
 
-require "fileutils"
-require "shellwords"
+require 'fileutils'
+require 'shellwords'
 
 # Add this template directory to source_paths so that Thor actions like
 # copy_file and template resolve against our source files. If this file was
@@ -91,11 +93,11 @@ require "shellwords"
 # In that case, use `git clone` to download them to a local temporary dir.
 def add_template_repository_to_source_path
   if __FILE__ =~ %r{\Ahttps?://}
-    source_paths.unshift(tempdir = Dir.mktmpdir("rails-template-"))
+    source_paths.unshift(tempdir = Dir.mktmpdir('rails-template-'))
     at_exit { FileUtils.remove_entry(tempdir) }
-    git :clone => [
-        "--quiet",
-        "https://github.com/m43nu/rails-template.git",
+    git clone: [
+        '--quiet',
+        'https://github.com/m43nu/rails-template.git',
         tempdir
     ].map(&:shellescape).join(" ")
   else
@@ -116,10 +118,10 @@ end
 # Bail out if user has passed in contradictory generator options.
 def assert_valid_options
   valid_options = {
-      :skip_gemfile => false,
-      :skip_bundle => false,
-      :skip_git => false,
-      :edge => false
+      skip_gemfile: false,
+      skip_bundle: false,
+      skip_git: false,
+      edge: false
   }
   valid_options.each do |key, expected|
     next unless options.key?(key)
@@ -131,36 +133,36 @@ def assert_valid_options
 end
 
 def assert_postgresql
-  return if IO.read("Gemfile") =~ /^\s*gem ['"]pg['"]/
+  return if IO.read('Gemfile') =~ /^\s*gem ['"]pg['"]/
   fail Rails::Generators::Error,
-       "This template requires PostgreSQL, "\
-       "but the pg gem isn’t present in your Gemfile."
+       'This template requires PostgreSQL, '\
+       'but the pg gem isn’t present in your Gemfile.'
 end
 
 # Mimic the convention used by capistrano-mb in order to generate
 # accurate deployment documentation.
 def capistrano_app_name
-  app_name.gsub(/[^a-zA-Z0-9_]/, "_")
+  app_name.gsub(/[^a-zA-Z0-9_]/, '_')
 end
 
 def git_repo_url
   @git_repo_url ||=
-      ask_with_default("What is the git remote URL for this project?", :blue, "skip")
+      ask_with_default('What is the git remote URL for this project?', :blue, 'skip')
 end
 
 def production_hostname
   @production_hostname ||=
-      ask_with_default("Production hostname?", :blue, "example.com")
+      ask_with_default('Production hostname?', :blue, 'example.com')
 end
 
 def staging_hostname
   @staging_hostname ||=
-      ask_with_default("Staging hostname?", :blue, "staging.example.com")
+      ask_with_default('Staging hostname?', :blue, 'staging.example.com')
 end
 
 def new_relic_license_key
   @new_relic_license_key ||=
-      ask_with_default("New Relic license key?", :blue, "skip")
+      ask_with_default('New Relic license key?', :blue, 'skip')
 end
 
 def privileged_user
@@ -169,13 +171,13 @@ def privileged_user
 end
 
 def gemfile_requirement(name)
-  @original_gemfile ||= IO.read("Gemfile")
+  @original_gemfile ||= IO.read('Gemfile')
   req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*).*$/, 1]
   req && req.gsub("'", %(")).strip.sub(/^,\s*"/, ', "')
 end
 
 def run_rubocop_autocorrections
-  run_with_clean_bundler_env "bin/rubocop -a --fail-level A > /dev/null"
+  run_with_clean_bundler_env 'bin/rubocop -a --fail-level A > /dev/null'
 end
 
 def ask_with_default(question, color, default)
@@ -195,23 +197,23 @@ def preexisting_git_repo?
 end
 
 def apply_bootstrap?
-  ask_with_default("Use Bootstrap gems, layouts, views, etc.?", :blue, "no")\
+  ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'no')\
     =~ /^y(es)?/i
 end
 
 def apply_alchemycms?
-  ask_with_default("Install and setup AlchemyCMS?", :blue, "no")\
+  ask_with_default('Install and setup AlchemyCMS?', :blue, 'no')\
     =~ /^y(es)?/i
 end
 
 def apply_alchemycms_devise?
   @apply_alchemycms_devise ||=
-      ask_with_default("Setup AlchemyCMS Devise Authentication?", :blue, "no")\
+      ask_with_default('Setup AlchemyCMS Devise Authentication?', :blue, 'no')\
       =~ /^y(es)?/i
 end
 
 def apply_oriented?
-  ask_with_default("Prepare app for oriented.net Hosting?", :blue, "no")\
+  ask_with_default('Prepare app for oriented.net Hosting?', :blue, 'no')\
     =~ /^y(es)?/i
 end
 

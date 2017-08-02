@@ -1,1 +1,1 @@
-remove_file "public/favicon.ico"
+remove_file 'public/favicon.ico'

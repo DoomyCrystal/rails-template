@@ -1,9 +1,7 @@
 append_to_file 'config/deploy.rb' do
   <<-VARS.strip_heredoc
 
-    fetch(:mb_aptitude_packages).merge!(
-      "imagemagick" => :all
-    )
+    fetch(:mb_aptitude_packages)["imagemagick"] = :all
     set :linked_dirs, fetch(:linked_dirs, []).push('uploads/pictures', 'uploads/attachments', 'public/pictures')
 
     namespace :deploy do
