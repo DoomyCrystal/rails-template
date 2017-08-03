@@ -9,6 +9,9 @@ copy_file 'app/assets/stylesheets/base.css.scss'
 copy_file 'app/assets/stylesheets/layout.css.scss'
 remove_file 'app/assets/stylesheets/application.css'
 
+copy_file 'app/assets/javascripts/serviceworker.js.erb'
+copy_file 'app/assets/javascripts/serviceworker-companion.js'
+
 copy_file 'app/controllers/home_controller.rb'
 copy_file 'app/helpers/javascript_helper.rb'
 copy_file 'app/helpers/layout_helper.rb'

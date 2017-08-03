@@ -3,33 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="330761b6-8c66-412e-b0f4-997f0e120a5f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.tt" afterPath="$PROJECT_DIR$/Gemfile.tt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/javascript_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/javascript_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/layout_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/layout_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/template.rb" afterPath="$PROJECT_DIR$/app/template.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_flash.html.haml" afterPath="$PROJECT_DIR$/app/views/shared/_flash.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/template.rb" afterPath="$PROJECT_DIR$/bin/template.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/boot.rb" afterPath="$PROJECT_DIR$/config/boot.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy.rb.tt" afterPath="$PROJECT_DIR$/config/deploy.rb.tt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy/production.rb.tt" afterPath="$PROJECT_DIR$/config/deploy/production.rb.tt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy/staging.rb.tt" afterPath="$PROJECT_DIR$/config/deploy/staging.rb.tt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/staging.rb.tt" afterPath="$PROJECT_DIR$/config/environments/staging.rb.tt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/test.rb" afterPath="$PROJECT_DIR$/config/environments/test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/rotate_log.rb" afterPath="$PROJECT_DIR$/config/initializers/rotate_log.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/secret_token.rb" afterPath="$PROJECT_DIR$/config/initializers/secret_token.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/secure_headers.rb" afterPath="$PROJECT_DIR$/config/initializers/secure_headers.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/template.rb" afterPath="$PROJECT_DIR$/config/template.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/auto_annotate_models.rake" afterPath="$PROJECT_DIR$/lib/tasks/auto_annotate_models.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/coverage.rake" afterPath="$PROJECT_DIR$/lib/tasks/coverage.rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/template.rb" afterPath="$PROJECT_DIR$/lib/template.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/template.rb" afterPath="$PROJECT_DIR$/public/template.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template.rb" afterPath="$PROJECT_DIR$/template.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/variants/alchemycms/Gemfile.rb" afterPath="$PROJECT_DIR$/variants/alchemycms/Gemfile.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/variants/alchemycms/config/deploy.rb" afterPath="$PROJECT_DIR$/variants/alchemycms/config/deploy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/variants/alchemycms/config/sitemap.rb" afterPath="$PROJECT_DIR$/variants/alchemycms/config/sitemap.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/variants/alchemycms/template.rb" afterPath="$PROJECT_DIR$/variants/alchemycms/template.rb" />
     </list>
     <ignored path="rails-template.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,63 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="serviceworker.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/initializers/serviceworker.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="template.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3225">
-              <caret line="215" column="69" lean-forward="false" selection-start-line="215" selection-start-column="69" selection-end-line="215" selection-end-column="69" />
-              <folding>
-                <marker date="1501684585000" expanded="true" signature="6126:6147" ph=" ... end" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ruby-version.tt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ruby-version.tt">
+        <entry file="file://$PROJECT_DIR$/variants/alchemycms/template.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rubocop.yml.tt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rubocop.yml.tt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alchemy_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/variants/alchemycms/app/helpers/alchemy_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rspec" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rspec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.yml.tt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/variants/alchemycms/config/alchemy/config.yml.tt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -122,11 +56,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sitemap.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../projects/gojukan.ch/config/sitemap.rb">
+      <file leaf-file-name="Gemfile.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/variants/bootstrap/Gemfile.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/template.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="79" lean-forward="true" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="3" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../projects/gojukan.ch/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="offline.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/offline.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/template.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,8 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/template.rb" />
-        <option value="$PROJECT_DIR$/gitignore" />
         <option value="$PROJECT_DIR$/variants/bootstrap/app/assets/stylesheets/application.scss.rb" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/bin/setup" />
@@ -173,12 +165,10 @@
         <option value="$PROJECT_DIR$/spec/template.rb" />
         <option value="$PROJECT_DIR$/rubocop.yml.tt" />
         <option value="$PROJECT_DIR$/variants/bootstrap/template.rb" />
-        <option value="$PROJECT_DIR$/Gemfile.tt" />
         <option value="$PROJECT_DIR$/variants/alchemycms/config/deploy.rb" />
         <option value="$PROJECT_DIR$/variants/alchemycms/template.rb" />
         <option value="$PROJECT_DIR$/app/helpers/layout_helper.rb" />
         <option value="$PROJECT_DIR$/app/helpers/javascript_helper.rb" />
-        <option value="$PROJECT_DIR$/app/template.rb" />
         <option value="$PROJECT_DIR$/app/views/shared/_flash.html.haml" />
         <option value="$PROJECT_DIR$/bin/template.rb" />
         <option value="$PROJECT_DIR$/config/deploy/production.rb.tt" />
@@ -193,15 +183,19 @@
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/config/boot.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb.tt" />
-        <option value="$PROJECT_DIR$/config/template.rb" />
         <option value="$PROJECT_DIR$/lib/template.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/coverage.rake" />
         <option value="$PROJECT_DIR$/lib/tasks/auto_annotate_models.rake" />
-        <option value="$PROJECT_DIR$/public/template.rb" />
         <option value="$PROJECT_DIR$/variants/alchemycms/config/sitemap.rb" />
         <option value="$PROJECT_DIR$/../../projects/sahlibeschriftung.ch/config/sitemap.rb" />
         <option value="$PROJECT_DIR$/variants/alchemycms/Gemfile.rb" />
         <option value="$PROJECT_DIR$/template.rb" />
+        <option value="$PROJECT_DIR$/Gemfile.tt" />
+        <option value="$PROJECT_DIR$/config/initializers/serviceworker.rb" />
+        <option value="$PROJECT_DIR$/public/template.rb" />
+        <option value="$PROJECT_DIR$/app/template.rb" />
+        <option value="$PROJECT_DIR$/config/template.rb" />
+        <option value="$PROJECT_DIR$/public/offline.html" />
       </list>
     </option>
   </component>
@@ -287,7 +281,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="alchemycms" />
+              <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,63 +295,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="variants" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alchemycms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="variants" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alchemycms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rails-template" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="variants" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alchemycms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -525,6 +463,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails-template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rails-template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -537,20 +497,20 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FullScreen" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="SearchEverywhereHistoryKey" value="template&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/template.rb&#10;template.rb&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/template.rb&#10;appli&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/application.rb&#10;Ge&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Gemfile.tt&#10;Gemf&#9;FILE&#9;file:///Users/eimhof/pxf/projects/festivals.cardinal.ch/Gemfile&#10;rotate&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/initializers/rotate_log.rb&#10;app&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/alchemycms/app/views/layouts/application.html.haml.tt&#10;depl&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/alchemycms/config/deploy.rb&#10;de&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/deploy.rb.tt&#10;mainte&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/lib/capistrano/tasks/maintenance.rake&#10;prod&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/environments/production.rb&#10;templ&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/template.rb&#10;rub&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/rubocop.yml.tt&#10;deploy&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/deploy.rb.tt&#10;Guard&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Guardfile&#10;gem&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Gemfile.tt&#10;config/te&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/template.rb&#10;Gem&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Gemfile.tt&#10;javas&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/test/helpers/javascript_helper_test.rb&#10;navbar_he&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/bootstrap/test/helpers/navbar_helper_test.rb&#10;navbar_h&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/bootstrap/app/helpers/navbar_helper.rb&#10;jenki&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/jenkins-ci.sh&#10;setup&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/bin/setup" />
+    <property name="SearchEverywhereHistoryKey" value="Gem&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Gemfile.tt&#10;template&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/template.rb&#10;template.rb&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/template.rb&#10;appli&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/application.rb&#10;Ge&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Gemfile.tt&#10;Gemf&#9;FILE&#9;file:///Users/eimhof/pxf/projects/festivals.cardinal.ch/Gemfile&#10;rotate&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/initializers/rotate_log.rb&#10;app&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/alchemycms/app/views/layouts/application.html.haml.tt&#10;depl&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/alchemycms/config/deploy.rb&#10;de&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/deploy.rb.tt&#10;mainte&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/lib/capistrano/tasks/maintenance.rake&#10;prod&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/environments/production.rb&#10;templ&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/template.rb&#10;rub&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/rubocop.yml.tt&#10;deploy&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/deploy.rb.tt&#10;Guard&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Guardfile&#10;gem&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/Gemfile.tt&#10;config/te&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/config/template.rb&#10;javas&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/test/helpers/javascript_helper_test.rb&#10;navbar_he&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/bootstrap/test/helpers/navbar_helper_test.rb&#10;navbar_h&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/variants/bootstrap/app/helpers/navbar_helper.rb&#10;jenki&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/jenkins-ci.sh&#10;setup&#9;FILE&#9;file:///Users/eimhof/freelancing/templates/rails-template/bin/setup" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/javascripts" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/config/initializers" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/spec" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/variants/bootstrap/app/assets/stylesheets/components" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets/utilities" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/spec" />
-      <recent name="$PROJECT_DIR$/variants/alchemycms/lib/capistrano/mb/templates" />
-      <recent name="$PROJECT_DIR$/variants/alchemycms/config" />
-      <recent name="$PROJECT_DIR$/variants/alchemycms/app/views/alchemy/pages" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -758,12 +718,12 @@
       <workItem from="1491221337517" duration="506000" />
       <workItem from="1491229731376" duration="2724000" />
       <workItem from="1494314827511" duration="1585000" />
-      <workItem from="1501681750739" duration="2408000" />
+      <workItem from="1501681750739" duration="3869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28654000" />
+    <option name="totallyTimeSpent" value="30115000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -839,134 +799,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/variants/alchemycms/template.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile.tt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/layout_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="72" lean-forward="true" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/javascript_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_flash.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml.tt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/template.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/template.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy/production.rb.tt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb.tt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/staging.rb.tt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/active_job.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/generators.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1063,14 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/template.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/template.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1115,14 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/template.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1175,16 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3225">
-          <caret line="215" column="69" lean-forward="false" selection-start-line="215" selection-start-column="69" selection-end-line="215" selection-end-column="69" />
-          <folding>
-            <marker date="1501684585000" expanded="true" signature="6126:6147" ph=" ... end" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ruby-version.tt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1225,14 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/variants/alchemycms/Gemfile.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../projects/sahlibeschriftung.ch/config/sitemap.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -1244,7 +1042,171 @@
     <entry file="file://$PROJECT_DIR$/rspec">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/variants/bootstrap/app/assets/javascripts/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../projects/gojukan.ch/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile.tt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="46" lean-forward="true" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/serviceworker-companion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/serviceworker.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../projects/gojukan.ch/config/initializers/assets.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/variants/bootstrap/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3225">
+          <caret line="215" column="69" lean-forward="false" selection-start-line="215" selection-start-column="69" selection-end-line="215" selection-end-column="69" />
+          <folding>
+            <marker date="1501684585000" expanded="true" signature="6126:6147" ph=" ... end" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/serviceworker.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/variants/alchemycms/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/variants/alchemycms/Gemfile.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/variants/bootstrap/Gemfile.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rbenv/versions/1.9.3-p551/lib/ruby/gems/1.9.1/gems/thor-0.19.1/lib/thor/actions/file_manipulation.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="153" column="5" lean-forward="true" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/offline.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/template.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="79" lean-forward="true" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../projects/gojukan.ch/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

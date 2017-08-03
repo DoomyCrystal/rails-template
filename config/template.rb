@@ -19,11 +19,14 @@ copy_file 'config/initializers/generators.rb'
 copy_file 'config/initializers/rotate_log.rb'
 copy_file 'config/initializers/secret_token.rb'
 copy_file 'config/initializers/secure_headers.rb'
+copy_file 'config/initializers/serviceworker.rb'
 copy_file 'config/initializers/version.rb'
 
 gsub_file 'config/initializers/filter_parameter_logging.rb', /\[:password\]/ do
   '%w(password secret session cookie csrf)'
 end
+
+append_to_file 'config/initializers/assets.rb', 'Rails.configuration.assets.precompile += %w[serviceworker.js]'
 
 template 'config/locales/de.yml.tt'
 
