@@ -20,6 +20,7 @@ append_to_file 'config/deploy.rb' do
           within release_path do
             execute :rake, 'tmp:clear'
             execute :rake, 'sitemap:create'
+            # execute :rake, 'critical_path_css:generate'
           end
         end
       end

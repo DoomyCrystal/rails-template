@@ -7,6 +7,7 @@ require "capistrano/deploy"
 # Include tasks from other gems included in your Gemfile
 require "capistrano/bundler"
 require "capistrano/rails"
+require "capistrano-faster-assets"
 require "capistrano/mb"
 require "airbrussh/capistrano"
 

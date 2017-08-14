@@ -18,4 +18,5 @@ copy_file 'app/helpers/layout_helper.rb'
 remove_file 'app/views/layouts/application.html.erb'
 template 'app/views/layouts/application.html.haml.tt', force: true
 copy_file 'app/views/shared/_flash.html.haml'
+copy_file 'app/views/shared/_critical_path.html.haml'
 copy_file 'app/views/home/index.html.haml'

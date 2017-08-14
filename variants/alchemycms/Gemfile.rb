@@ -1,7 +1,7 @@
 insert_into_file 'Gemfile', after: /gem "bcrypt".*\n/ do
   <<-GEMS.strip_heredoc
     gem 'alchemy_cms', '~> 3.6.0'
-    gem 'alchemy-image_optim', github: 'm43nu/alchemy-image_optim', branch: 'master'
+    gem 'alchemy-image_optim', git: 'https://github.com/m43nu/alchemy-image_optim.git'
     gem 'image_optim_pack'
     gem 'sitemap_generator'
   GEMS
