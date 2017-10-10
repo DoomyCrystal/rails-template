@@ -5,6 +5,7 @@ copy_file 'config/pre_commit.yml'
 copy_file 'config/critical_path_css.yml'
 template 'config/database.example.yml.tt'
 remove_file 'config/database.yml'
+copy_file 'config/puma.rb', force: true
 remove_file 'config/secrets.yml'
 
 template 'config/deploy.rb.tt'

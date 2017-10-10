@@ -42,6 +42,9 @@ Rails/Validation:
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
 
+Naming/VariableNumber:
+  Enabled: false
+
 Style/ClassAndModuleChildren:
   Enabled: false
 
@@ -62,13 +65,13 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/HashSyntax:
-  EnforcedStyle: hash_rockets
+  EnforcedStyle: ruby19
 
 Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
 
 Style/TrivialAccessors:
   AllowPredicates: true
