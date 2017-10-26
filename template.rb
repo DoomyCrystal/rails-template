@@ -1,4 +1,4 @@
-RAILS_REQUIREMENT = "~> 5.0.0"
+RAILS_REQUIREMENT = '~> 5.1.0'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -166,11 +166,6 @@ end
 def staging_hostname
   @staging_hostname ||=
       ask_with_default('Staging hostname?', :blue, 'staging.example.com')
-end
-
-def new_relic_license_key
-  @new_relic_license_key ||=
-      ask_with_default('New Relic license key?', :blue, 'skip')
 end
 
 def privileged_user

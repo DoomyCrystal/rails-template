@@ -14,4 +14,4 @@ set :mb_dotenv_keys, %w(
   redis_url
 )
 
-after "deploy:published", "bundler:clean"
+after 'deploy:published', 'bundler:clean'

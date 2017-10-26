@@ -12,9 +12,10 @@ gem 'jquery-rails'<%= gemfile_requirement('jquery-rails') %>
 gem 'mail', '>= 2.6.3'
 gem 'marco-polo'
 gem 'pg'<%= gemfile_requirement('pg') || ', "~> 0.18"' %>
+gem 'pgcli-rails'
 gem 'rails', '<%= Rails.version %>'
 gem 'rails-i18n'
-gem "redis-namespace"
+gem 'redis-namespace'
 gem 'sass-rails'<%= gemfile_requirement('sass-rails') %>
 gem 'secure_headers', '~> 3.0'
 gem 'serviceworker-rails'
@@ -44,32 +45,32 @@ group :development do
   gem 'guard', '>= 2.2.2', require:  false
   gem 'guard-livereload', require:  false
   gem 'letter_opener'
-  gem "listen"<%= gemfile_requirement("listen") %>
-<% if gemfile_requirement("puma") -%>
-  gem "puma"<%= gemfile_requirement("puma") %>
+  gem 'listen'<%= gemfile_requirement('listen') %>
+<% if gemfile_requirement('puma') -%>
+  gem 'puma'<%= gemfile_requirement('puma') %>
 <% end -%>
   gem 'rack-livereload'
   gem 'rails_real_favicon'
   gem 'rb-fsevent', require:  false
-  gem "rbnacl", "~> 3.4", :require => false
-  gem "rbnacl-libsodium", :require => false
-  gem "rubocop", ">= 0.44.0", :require => false
+  gem 'rbnacl', '~> 3.4', require: false
+  gem 'rbnacl-libsodium', require: false
+  gem 'rubocop', '>= 0.50.0', require: false
   gem 'simplecov', require:  false
   gem 'spring'
   gem 'sshkit', '~> 1.8', require:  false
-<% if gemfile_requirement("spring-watcher-listen") -%>
-  gem "spring-watcher-listen"<%= gemfile_requirement("spring-watcher-listen") %>
+<% if gemfile_requirement('spring-watcher-listen') -%>
+  gem 'spring-watcher-listen'<%= gemfile_requirement('spring-watcher-listen') %>
 <% end -%>
   gem 'terminal-notifier', require:  false
   gem 'terminal-notifier-guard', require:  false
-<% unless gemfile_requirement("puma") -%>
-  gem "thin", :require => false
+<% unless gemfile_requirement('puma') -%>
+  gem 'thin', require: false
 <% end -%>
   # gem 'xray-rails', '>= 0.1.18'
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara'<%= gemfile_requirement("capybara") %>
   gem 'connection_pool'
   gem 'database_cleaner'
   gem 'launchy'

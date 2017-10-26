@@ -19,3 +19,6 @@ template 'app/views/layouts/application.html.haml.tt', force: true
 copy_file 'app/views/shared/_flash.html.haml'
 copy_file 'app/views/shared/_critical_path.html.haml'
 copy_file 'app/views/home/index.html.haml'
+
+remove_dir 'app/jobs'
+empty_directory_with_keep_file 'app/workers'
