@@ -1,4 +1,4 @@
-RAILS_REQUIREMENT = '~> 4.2.0'
+RAILS_REQUIREMENT = '~> 4.2.10'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -16,8 +16,6 @@ def apply_template!
   template 'example.env.tt'
   copy_file 'gitignore', '.gitignore', force: true
   copy_file 'rspec', '.rspec', force: true
-  copy_file 'jenkins-ci.sh', mode: :preserve
-  copy_file 'rubocop.yml', '.rubocop.yml'
   template 'ruby-version.tt', '.ruby-version'
   copy_file 'simplecov', '.simplecov'
 
@@ -34,6 +32,7 @@ def apply_template!
   apply 'spec/template.rb'
 
   apply 'variants/bootstrap/template.rb' if apply_bootstrap?
+
   git :init unless preexisting_git_repo?
   empty_directory '.git/safe'
 
@@ -44,6 +43,7 @@ def apply_template!
     annotate brakeman bundler-audit capistrano guard rubocop terminal-notifier
   ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')}"
+
   template 'rubocop.yml.tt', '.rubocop.yml', force: true
   run_rubocop_autocorrections
 
@@ -67,7 +67,7 @@ def apply_template!
     # copy our customized config-file
     template 'config/alchemy/config.yml.tt', force: true
 
-    # recreate db, as the main language seems to be set tot the wrong one
+    # recreate db, as the main language seems to be set to the wrong one
     run 'bin/rake db:reset'
   end
 
@@ -101,6 +101,10 @@ def add_template_repository_to_source_path
         'https://github.com/m43nu/rails-template.git',
         tempdir
     ].map(&:shellescape).join(" ")
+
+    if (branch = __FILE__[%r{rails-template/(.+)/template.rb}, 1])
+      Dir.chdir(tempdir) { git checkout: branch }
+    end
   else
     source_paths.unshift(File.dirname(__FILE__))
   end
@@ -122,6 +126,7 @@ def assert_valid_options
       skip_gemfile: false,
       skip_bundle: false,
       skip_git: false,
+      skip_test_unit: true,
       edge: false
   }
   valid_options.each do |key, expected|
@@ -177,10 +182,6 @@ def gemfile_requirement(name)
   req && req.gsub("'", %(")).strip.sub(/^,\s*"/, ', "')
 end
 
-def run_rubocop_autocorrections
-  run_with_clean_bundler_env 'bin/rubocop -a --fail-level A > /dev/null'
-end
-
 def ask_with_default(question, color, default)
   return default unless $stdin.tty?
   question = (question.split("?") << " [#{default}]?").join
@@ -221,6 +222,10 @@ end
 def run_with_clean_bundler_env(cmd)
   return run(cmd) unless defined?(Bundler)
   Bundler.with_clean_env { run(cmd) }
+end
+
+def run_rubocop_autocorrections
+  run_with_clean_bundler_env 'bin/rubocop -a --fail-level A > /dev/null'
 end
 
 apply_template!

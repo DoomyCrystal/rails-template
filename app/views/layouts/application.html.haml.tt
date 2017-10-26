@@ -3,8 +3,6 @@
   %head
     <!-- <%= app_const_base.titleize %>  #{Rails.application.config.version} (#{l(Rails.application.config.version_time)}) -->
     = render 'shared/critical_path'
-    :javascript
-      function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
     = yield(:head)
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge")

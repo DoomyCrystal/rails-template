@@ -13,7 +13,6 @@ copy_file 'app/assets/javascripts/serviceworker.js.erb'
 copy_file 'app/assets/javascripts/serviceworker-companion.js'
 
 copy_file 'app/controllers/home_controller.rb'
-copy_file 'app/helpers/javascript_helper.rb'
 copy_file 'app/helpers/layout_helper.rb'
 remove_file 'app/views/layouts/application.html.erb'
 template 'app/views/layouts/application.html.haml.tt', force: true

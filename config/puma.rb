@@ -21,3 +21,4 @@ if workers_count > 1
 end
 
 # Allow puma to be restarted by `rails restart` command.
+plugin :tmp_restart

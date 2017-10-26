@@ -3,10 +3,8 @@
   %head
     <!-- <%= app_const_base.titleize %>  #{Rails.application.config.version} (#{l(Rails.application.config.version_time)}) -->
     = render 'shared/critical_path'
-    :javascript
-      function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
     = yield(:head)
-    %meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
     %meta(http-equiv="x-ua-compatible" content="ie=edge")
     = render 'alchemy/pages/meta_data', title_prefix: t('meta_title'), title_separator: ' · '
     %meta(name="mobile-web-app-capable" content="yes")
@@ -23,5 +21,8 @@
       </p>
     = render('shared/flash')
     = yield
-
+    :javascript
+      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+      ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+    %script{:async => "", :defer => "defer", :src => "https://www.google-analytics.com/analytics.js"}
     = render 'alchemy/edit_mode'

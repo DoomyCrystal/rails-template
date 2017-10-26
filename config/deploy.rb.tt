@@ -11,4 +11,5 @@ set :mb_dotenv_keys, %w(
   rails_secret_key_base
   mailgun_domain
   mailgun_api_key
+  redis_url
 )
