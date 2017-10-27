@@ -21,8 +21,9 @@
       </p>
     = render('shared/flash')
     = yield
-    :javascript
-      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-      ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-    %script{:async => "", :defer => "defer", :src => "https://www.google-analytics.com/analytics.js"}
+    - if trackable?
+      :javascript
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+      %script{:async => "", :defer => "defer", :src => "https://www.google-analytics.com/analytics.js"}
     = render 'alchemy/edit_mode'
