@@ -97,12 +97,12 @@ def add_template_repository_to_source_path
     source_paths.unshift(tempdir = Dir.mktmpdir('rails-template-'))
     at_exit { FileUtils.remove_entry(tempdir) }
     git :clone => [
-        '--quiet',
-        '--single-branch',
-        '-b rails-5',
-        'https://github.com/m43nu/rails-template.git',
+        "--quiet",
+        "--single-branch",
+        "-b rails-5",
+        "https://github.com/m43nu/rails-template.git",
         tempdir
-    ].map(&:shellescape).join(" ")
+    ].join(" ")
 
     if (branch = __FILE__[%r{rails-template/(.+)/template.rb}, 1])
       Dir.chdir(tempdir) { git checkout: branch }
