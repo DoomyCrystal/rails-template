@@ -1,10 +1,10 @@
 source_paths.unshift(File.dirname(__FILE__))
 
 apply "Gemfile.rb"
-apply "app/assets/stylesheets/application.css.scss.rb"
-copy_file "app/assets/stylesheets/bootstrap.css.scss"
+apply "app/assets/stylesheets/application.scss.rb"
+copy_file "app/assets/stylesheets/bootstrap.scss"
 copy_file "app/assets/javascripts/bootstrap.js"
-copy_file "app/assets/stylesheets/components/block-grid.css.scss"
+copy_file "app/assets/stylesheets/components/block-grid.scss"
 copy_file "app/assets/stylesheets/globals/_variables.scss", force: true
 copy_file "app/helpers/navbar_helper.rb"
 template "app/views/layouts/application.html.haml.tt", :force => true

@@ -1,4 +1,4 @@
-RAILS_REQUIREMENT = '~> 4.2.10'.freeze
+RAILS_REQUIREMENT = '~> 5.1.0'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -73,7 +73,7 @@ def apply_template!
 
   apply 'variants/oriented/template.rb' if apply_oriented?
 
-  unless preexisting_git_repo?
+  if empty_git_repo?
     git add: '-A .'
     git commit: "-n -m 'Set up project'"
     git checkout: '-b development'
@@ -96,11 +96,11 @@ def add_template_repository_to_source_path
     require 'tmpdir'
     source_paths.unshift(tempdir = Dir.mktmpdir('rails-template-'))
     at_exit { FileUtils.remove_entry(tempdir) }
-    git clone: [
-        '--quiet',
-        'https://github.com/m43nu/rails-template.git',
+    git :clone => [
+        "--quiet",
+        "https://github.com/m43nu/rails-template.git",
         tempdir
-    ].map(&:shellescape).join(" ")
+    ].join(" ")
 
     if (branch = __FILE__[%r{rails-template/(.+)/template.rb}, 1])
       Dir.chdir(tempdir) { git checkout: branch }
@@ -166,11 +166,6 @@ def staging_hostname
       ask_with_default('Staging hostname?', :blue, 'staging.example.com')
 end
 
-def new_relic_license_key
-  @new_relic_license_key ||=
-      ask_with_default('New Relic license key?', :blue, 'skip')
-end
-
 def privileged_user
   @privileged_user ||=
       ask_with_default('SSH User?', :blue, 'wrr10705')
@@ -178,7 +173,7 @@ end
 
 def gemfile_requirement(name)
   @original_gemfile ||= IO.read('Gemfile')
-  req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*).*$/, 1]
+  req = @original_gemfile[/gem\s+['"]#{name}['"]\s*(,[><~= \t\d\.\w'"]*)?.*$/, 1]
   req && req.gsub("'", %(")).strip.sub(/^,\s*"/, ', "')
 end
 
@@ -196,6 +191,11 @@ end
 def preexisting_git_repo?
   @preexisting_git_repo ||= (File.exist?(".git") || :nope)
   @preexisting_git_repo == true
+end
+
+def empty_git_repo?
+  return @empty_git_repo if defined?(@empty_git_repo)
+  @empty_git_repo = !system("git rev-list -n 1 --all &> /dev/null")
 end
 
 def apply_bootstrap?

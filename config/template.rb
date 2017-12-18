@@ -24,7 +24,7 @@ copy_file 'config/initializers/serviceworker.rb'
 copy_file 'config/initializers/version.rb'
 
 gsub_file 'config/initializers/filter_parameter_logging.rb', /\[:password\]/ do
-  '%w(password secret session cookie csrf)'
+  '%w[password secret session cookie csrf]'
 end
 
 append_to_file 'config/initializers/assets.rb', 'Rails.configuration.assets.precompile += %w[serviceworker.js]'
@@ -35,3 +35,5 @@ apply 'config/environments/development.rb'
 apply 'config/environments/production.rb'
 apply 'config/environments/test.rb'
 template 'config/environments/staging.rb.tt'
+
+route 'root "home#index"'
