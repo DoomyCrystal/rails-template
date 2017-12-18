@@ -12,7 +12,7 @@ This is the application template that I use for my Rails 5 projects. As a freela
 
 This template currently works with:
 
-* Rails 5.0.x
+* Rails 5.1.x
 * PostgreSQL
 
 If you need help setting up a Ruby development environment, check out Matt Brictsons [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
@@ -90,15 +90,13 @@ The template will perform the following steps:
     * [secure_headers][] – hardens your app against XSS attacks
 * Testing
     * [capybara][] and [poltergeist][] – integration testing
-    * [minitest-reporters][] – colorizes test output with progress bar and more
-    * [mocha][] – excellent mocking for Test::Unit/Minitest
     * [simplecov][] – code coverage reports
     * [shoulda][] – shortcuts for common ActiveRecord tests
     * [test_after_commit][] – ensures after_commit hooks can be tested
 
-#### Mandrill SMTP
+#### Mailgun
 
-Action Mailer is configured to use [Mandrill][] for SMTP. You can change this by editing `environments/production.rb`.
+Action Mailer is configured to use [Mailgun][] to send emails. You can change this by editing `environments/production.rb`.
 
 #### Bootstrap integration (optional)
 
@@ -150,7 +148,7 @@ Rails generators are very lightly documented; what you’ll find is that most of
 [capistrano-mb]:https://github.com/mattbrictson/capistrano-mb
 [unicorn]:http://unicorn.bogomips.org
 [unicorn-worker-killer]:https://github.com/kzk/unicorn-worker-killer
-[Mandrill]:http://mandrill.com
+[Mailgun]:https://www.mailgun.com/
 [brakeman]:https://github.com/presidentbeef/brakeman
 [bundler-audit]:https://github.com/rubysec/bundler-audit
 [secure_headers]:https://github.com/twitter/secureheaders
