@@ -8,8 +8,11 @@ def apply_template!
 
   template 'Gemfile.tt', force: true
 
-  template 'DEPLOYMENT.md.tt'
-  template 'PROVISIONING.md.tt'
+  if apply_capistrano?
+    template 'DEPLOYMENT.md.tt'
+    template 'PROVISIONING.md.tt'
+  end
+
   template 'README.md.tt', force: true
   remove_file 'README.rdoc'
 
@@ -19,8 +22,9 @@ def apply_template!
   template 'ruby-version.tt', '.ruby-version'
   copy_file 'simplecov', '.simplecov'
 
-  copy_file 'Capfile'
+  copy_file 'Capfile' if apply_capistrano?
   copy_file 'Guardfile'
+  copy_file 'Procfile'
 
   apply 'config.ru.rb'
   apply 'app/template.rb'
@@ -40,9 +44,10 @@ def apply_template!
   generate_spring_binstubs
 
   binstubs = %w[
-    annotate brakeman bundler-audit capistrano guard rubocop terminal-notifier
+    annotate brakeman bundler bundler-audit guard rubocop terminal-notifier
   ]
-  run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')}"
+  binstubs.push('capistrano', 'unicorn') if apply_capistrano?
+  run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
 
   template 'rubocop.yml.tt', '.rubocop.yml', force: true
   run_rubocop_autocorrections
@@ -73,10 +78,10 @@ def apply_template!
 
   apply 'variants/oriented/template.rb' if apply_oriented?
 
-  if empty_git_repo?
+  unless any_local_git_commits?
     git add: '-A .'
     git commit: "-n -m 'Set up project'"
-    git checkout: '-b development'
+    git checkout: '-b development' if apply_capistrano?
     if git_repo_specified?
       git remote: "add origin #{git_repo_url.shellescape}"
       git push: '-u origin --all'
@@ -95,7 +100,7 @@ def add_template_repository_to_source_path
   if __FILE__ =~ %r{\Ahttps?://}
     require 'tmpdir'
     source_paths.unshift(tempdir = Dir.mktmpdir('rails-template-'))
-    at_exit { FileUtils.remove_entry(tempdir) }
+    at_exit {FileUtils.remove_entry(tempdir)}
     git :clone => [
         "--quiet",
         "https://github.com/m43nu/rails-template.git",
@@ -103,7 +108,7 @@ def add_template_repository_to_source_path
     ].join(" ")
 
     if (branch = __FILE__[%r{rails-template/(.+)/template.rb}, 1])
-      Dir.chdir(tempdir) { git checkout: branch }
+      Dir.chdir(tempdir) {git checkout: branch}
     end
   else
     source_paths.unshift(File.dirname(__FILE__))
@@ -193,9 +198,8 @@ def preexisting_git_repo?
   @preexisting_git_repo == true
 end
 
-def empty_git_repo?
-  return @empty_git_repo if defined?(@empty_git_repo)
-  @empty_git_repo = !system("git rev-list -n 1 --all &> /dev/null")
+def any_local_git_commits?
+  system('git log &> /dev/null')
 end
 
 def apply_bootstrap?
@@ -219,9 +223,16 @@ def apply_oriented?
     =~ /^y(es)?/i
 end
 
+def apply_capistrano?
+  return @apply_capistrano if defined?(@apply_capistrano)
+  @apply_capistrano = \
+     ask_with_default('Use Capistrano for deployment?', :blue, 'yes') \
+     =~ /^y(es)?/i
+end
+
 def run_with_clean_bundler_env(cmd)
   return run(cmd) unless defined?(Bundler)
-  Bundler.with_clean_env { run(cmd) }
+  Bundler.with_clean_env {run(cmd)}
 end
 
 def run_rubocop_autocorrections

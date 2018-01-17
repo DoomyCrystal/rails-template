@@ -30,7 +30,7 @@ To make this the default Rails application template on your system, create a `~/
 
 ## Usage
 
-This template assumes you will store your project in a remote git repository (e.g. Bitbucket or GitHub) and that you will deploy using Capistrano to staging and production environments. It will prompt you for this information in order to pre-configure your app, so be ready to provide:
+This template assumes you will store your project in a remote git repository (e.g. Bitbucket or GitHub) and that you will deploy to staging and production environments. It will prompt you for this information in order to pre-configure your app, so be ready to provide:
 
 1. The git URL of your (freshly created and empty) Bitbucket/GitHub repository
 2. The hostname of your staging server
@@ -60,8 +60,7 @@ The template will perform the following steps:
 2. Ensure bundler is installed
 3. Create the development and test databases
 4. Commit everything to git
-5. Check out a `development` branch
-6. Push the project to the remote git repository you specified
+5. Push the project to the remote git repository you specified
 
 ## What is included?
 
@@ -81,7 +80,7 @@ The template will perform the following steps:
     * [rubocop][] – enforces Ruby code style
     * [xray-rails][] – inspect view partials in the browser
     * [haml-rails][] - use haml instead of erb
-* Deployment
+* Deployment via Capistrano (optional)
     * [capistrano-mb][] – capistrano recipes
     * [unicorn][] – the industry-standard Rails server
     * [unicorn-worker-killer][] – to manage memory use
@@ -121,8 +120,7 @@ Action Mailer is configured to use [Mailgun][] to send emails. You can change th
 #### Plus lots of documentation for your project
 
 * `README.md`
-* `PROVISIONING.md`
-* `DEPLOYMENT.md`
+* `PROVISIONING.md` and `DEPLOYMENT.md` for Capistrano (optional)
 
 ## How does it work?
 
