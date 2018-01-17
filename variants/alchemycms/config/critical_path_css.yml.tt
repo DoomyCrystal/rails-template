@@ -5,6 +5,9 @@ defaults: &defaults
   # css_path: /path/to/css/from/public/main.css
   routes:
     - /
+    <% Alchemy::Page.published.each do |page| %>
+    - /<%= page.urlname.to_s %>
+    <% end %>
 
 development:
   <<: *defaults
@@ -12,8 +15,8 @@ development:
 
 staging:
   <<: *defaults
-  base_url: http://staging.example.com
+  base_url: http://<%= staging_hostname %>
 
 production:
   <<: *defaults
-  base_url: https://example.com
+  base_url: https://<%= production_hostname %>

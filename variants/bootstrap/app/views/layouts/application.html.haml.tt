@@ -1,27 +1,19 @@
 !!!
-%html.no-js(lang="de")
+%html.no-js(lang="de-CH")
   %head
     <!-- <%= app_const_base.titleize %>  #{Rails.application.config.version} (#{l(Rails.application.config.version_time)}) -->
-    = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track' => true)
-    = javascript_include_async_tag('application', 'data-turbolinks-track' => true)
-    :javascript
-      function aload(t){"use strict";var e="data-aload";return t=t||window.document.querySelectorAll("["+e+"]"),void 0===t.length&&(t=[t]),[].forEach.call(t,function(t){t["LINK"!==t.tagName?"src":"href"]=t.getAttribute(e),t.removeAttribute(e)}),t}
-
+    = render 'shared/critical_path'
     = yield(:head)
-
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %meta(name="description" content="#{t('.meta_description')}")
     %meta(name="keywords" content="#{t('.meta_keywords')}")
-
     %meta(name="mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-capable" content="yes")
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
     %meta(name="apple-mobile-web-app-title" content="<%= app_const_base.titleize %>")
-
     = csrf_meta_tags
-
     %title
       = strip_tags(yield(:title)) + " – " if content_for?(:title)
       <%= app_const_base.titleize %>
@@ -32,9 +24,16 @@
       Ihren Browser</a>
       um diese Seite optimal darzustellen.
       </p>
-    = render('shared/navbar')
-    .container
-      = render('shared/flash')
-      = render('shared/page_header')
-      = yield
-      = render('shared/footer')
+    = link_to 'Zum Inhalt springen', '#main-content', class: 'sr-only sr-only-focusable'
+    %header.l-header= render('shared/navbar')
+    %main#main-content.l-main
+      .container
+        = render('shared/flash')
+        = render('shared/page_header')
+        = yield
+    = render('shared/footer')
+    - if trackable?
+      :javascript
+        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+      %script{async: '', defer: 'defer', src: 'https://www.google-analytics.com/analytics.js'}

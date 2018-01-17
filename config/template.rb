@@ -1,7 +1,7 @@
 apply 'config/application.rb'
 apply 'config/boot.rb'
 copy_file 'config/brakeman.yml'
-copy_file 'config/critical_path_css.yml'
+template 'config/critical_path_css.yml.tt'
 template 'config/database.example.yml.tt'
 remove_file 'config/database.yml'
 copy_file 'config/puma.rb', force: true

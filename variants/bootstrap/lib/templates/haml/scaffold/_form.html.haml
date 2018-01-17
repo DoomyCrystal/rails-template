@@ -1,6 +1,6 @@
 = bootstrap_form_for(@<%= singular_table_name %>) do |f|
 
-  = f.alert_message "Bitte überprüfen Sie die nachfolgenden Probleme:"
+  = f.alert_message 'Bitte überprüfen Sie die nachfolgenden Probleme:'
 
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
@@ -10,7 +10,7 @@
   <%- if attribute.reference? -%>
   = f.<%= attribute.field_type %> :<%= attribute.column_name %>
   <%- elsif attribute.field_type == :text_area -%>
-  = f.text_area :<%= attribute.name %>, :rows => 5
+  = f.text_area :<%= attribute.name %>, rows: 5
   <%- else -%>
   = f.<%= attribute.field_type %> :<%= attribute.name %>
   <%- end -%>
@@ -18,4 +18,4 @@
 <% end -%>
 
   = f.primary
-  = link_to "Zurück", <%= index_helper %>_path, :class => "btn btn-link"
+  = link_to 'Zurück', <%= index_helper %>_path, class: 'btn btn-link'
