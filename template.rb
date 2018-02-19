@@ -1,6 +1,7 @@
 RAILS_REQUIREMENT = '~> 5.1.0'.freeze
 
 def apply_template!
+  ENV['DISABLE_BOOTSNAP'] = '1'
   assert_minimum_rails_version
   assert_valid_options
   assert_postgresql
@@ -231,12 +232,19 @@ def apply_capistrano?
 end
 
 def run_with_clean_bundler_env(cmd)
-  return run(cmd) unless defined?(Bundler)
-  Bundler.with_clean_env {run(cmd)}
+  success = if defined?(Bundler)
+              Bundler.with_clean_env { run(cmd) }
+            else
+              run(cmd)
+            end
+  unless success
+    puts "Command failed, exiting: #{cmd}"
+    exit(1)
+  end
 end
 
 def run_rubocop_autocorrections
-  run_with_clean_bundler_env 'bin/rubocop -a --fail-level A > /dev/null'
+  run_with_clean_bundler_env "bin/rubocop -a --fail-level A > /dev/null || true"
 end
 
 apply_template!
