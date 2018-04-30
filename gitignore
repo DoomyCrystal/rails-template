@@ -15,6 +15,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore uploaded files in development
+/storage/*
+
 # Ignore Byebug command history file.
 .byebug_history
 uploads
@@ -22,12 +25,14 @@ uploads
 # Ignore test reports
 /brakeman-output.*
 /coverage
+/capybara-*.html
 
 # Ignore results of `rake assets:precompile`.
 /public/assets/
 
 # Never check passwords into source control!
 /config/database.yml
+/config/master.key
 /.env
 
 ### JetBrains template

@@ -1,5 +1,4 @@
 apply 'config/application.rb'
-apply 'config/boot.rb'
 copy_file 'config/brakeman.yml'
 template 'config/critical_path_css.yml.tt'
 template 'config/database.example.yml.tt'
@@ -21,7 +20,6 @@ copy_file 'config/initializers/active_job.rb'
 copy_file 'config/initializers/generators.rb'
 copy_file 'config/initializers/rotate_log.rb'
 copy_file 'config/initializers/secret_token.rb'
-copy_file 'config/initializers/secure_headers.rb'
 copy_file 'config/initializers/serviceworker.rb'
 copy_file 'config/initializers/version.rb'
 

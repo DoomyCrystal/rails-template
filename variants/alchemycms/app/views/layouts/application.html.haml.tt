@@ -12,6 +12,7 @@
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
     %meta(name="apple-mobile-web-app-title" content="#{t('meta_title')}")
     = csrf_meta_tags
+    = csp_meta_tag
   %body.l-page{class: "l-page--#{@page.page_layout}"}
     /[if lt IE 11]
       <p class="browse-happy">

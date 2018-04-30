@@ -1,7 +1,6 @@
 RAILS_REQUIREMENT = '~> 5.1.0'.freeze
 
 def apply_template!
-  ENV['DISABLE_BOOTSNAP'] = '1'
   assert_minimum_rails_version
   assert_valid_options
   assert_postgresql
@@ -20,7 +19,7 @@ def apply_template!
   template 'example.env.tt'
   copy_file 'gitignore', '.gitignore', force: true
   copy_file 'rspec', '.rspec', force: true
-  template 'ruby-version.tt', '.ruby-version'
+  template 'ruby-version.tt', '.ruby-version', force: true
   copy_file 'simplecov', '.simplecov'
 
   copy_file 'Capfile' if apply_capistrano?

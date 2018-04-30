@@ -14,6 +14,7 @@
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
     %meta(name="apple-mobile-web-app-title" content="<%= app_const_base.titleize %>")
     = csrf_meta_tags
+    = csp_meta_tag
     %title
       = strip_tags(yield(:title)) + " – " if content_for?(:title)
       <%= app_const_base.titleize %>

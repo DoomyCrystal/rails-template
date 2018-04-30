@@ -4,7 +4,7 @@
 
 *Forked from mattbrictson/rails-template*
 
-This is the application template that I use for my Rails 5 projects. As a freelance Rails developer, I need to be able to start new projects quickly and with a good set of defaults. I've assembled this template over the years to include best-practices, tweaks, documentation, and personal preferences, while still generally adhering to the "Rails way".
+This is the application template that I use for my Rails 5.2 projects. As a freelance Rails developer, I need to be able to start new projects quickly and with a good set of defaults. I've assembled this template over the years to include best-practices, tweaks, documentation, and personal preferences, while still generally adhering to the "Rails way".
 
 *For Rails 4.2 projects, use the [rails-42 branch](https://github.com/m43nu/rails-template/tree/rails-42).*
 
@@ -12,7 +12,7 @@ This is the application template that I use for my Rails 5 projects. As a freela
 
 This template currently works with:
 
-* Rails 5.1.x
+* Rails 5.2.x
 * PostgreSQL
 
 If you need help setting up a Ruby development environment, check out Matt Brictsons [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
@@ -86,7 +86,6 @@ The template will perform the following steps:
     * [unicorn-worker-killer][] – to manage memory use
 * Security
     * [brakeman][] and [bundler-audit][] – detect security vulnerabilities
-    * [secure_headers][] – hardens your app against XSS attacks
 * Testing
     * [capybara][] and [poltergeist][] – integration testing
     * [simplecov][] – code coverage reports
@@ -149,7 +148,6 @@ Rails generators are very lightly documented; what you’ll find is that most of
 [Mailgun]:https://www.mailgun.com/
 [brakeman]:https://github.com/presidentbeef/brakeman
 [bundler-audit]:https://github.com/rubysec/bundler-audit
-[secure_headers]:https://github.com/twitter/secureheaders
 [minitest-reporters]:https://github.com/kern/minitest-reporters
 [capybara]:https://github.com/jnicklas/capybara
 [poltergeist]:https://github.com/teampoltergeist/poltergeist
