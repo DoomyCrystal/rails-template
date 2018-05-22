@@ -12,13 +12,13 @@ remove_file 'app/assets/stylesheets/application.css'
 copy_file 'app/assets/javascripts/serviceworker.js.erb'
 copy_file 'app/assets/javascripts/serviceworker-companion.js'
 
+copy_file 'app/controllers/errors_controller.rb'
 copy_file 'app/controllers/home_controller.rb'
+copy_file 'app/controllers/concerns/critical_path.rb'
 copy_file 'app/helpers/layout_helper.rb'
+copy_file 'app/jobs/generate_critical_css_job.rb'
 remove_file 'app/views/layouts/application.html.erb'
 template 'app/views/layouts/application.html.haml.tt', force: true
 copy_file 'app/views/shared/_flash.html.haml'
 copy_file 'app/views/shared/_critical_path.html.haml'
 copy_file 'app/views/home/index.html.haml'
-
-remove_dir 'app/jobs'
-empty_directory_with_keep_file 'app/workers'

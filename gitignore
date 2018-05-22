@@ -18,9 +18,12 @@
 # Ignore uploaded files in development
 /storage/*
 
+/node_modules
+/yarn-error.log
+
 # Ignore Byebug command history file.
 .byebug_history
-uploads
+/uploads/*
 
 # Ignore test reports
 /brakeman-output.*

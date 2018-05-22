@@ -1,4 +1,4 @@
 Rails.application.configure do
-  # keep this for later usage
-  # config.active_job.queue_adapter = :delayed_job
+  # Use sidekiq to process Active Jobs (e.g. ActionMailer's deliver_later)
+  config.active_job.queue_adapter = :sidekiq
 end

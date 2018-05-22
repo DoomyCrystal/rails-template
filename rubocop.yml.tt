@@ -9,11 +9,16 @@ AllCops:
     - config/environment.rb
     - config/initializers/version.rb
     - db/schema.rb
+    - "node_modules/**/*"
+    - "bower_components/**/*"
     - "tmp/**/*"
     - "vendor/**/*"
     - Gemfile
     - Guardfile
     - Rakefile
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
 
 Metrics/AbcSize:
   Exclude:
@@ -22,7 +27,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - "config/**/*"
-    - "test/**/*"
+    - "spec/**/*"
 
 Metrics/ClassLength:
   Exclude:
@@ -39,11 +44,24 @@ Metrics/MethodLength:
     - "db/migrate/*"
     - "spec/**/*"
 
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
 Performance/Casecmp:
   Enabled: false
 
 Rails:
   Enabled: true
+
+Rails/ApplicationRecord:
+  Exclude:
+    - "db/migrate/**"
+
+Rails/RefuteMethods:
+  Enabled: false
 
 Rails/Validation:
   Enabled: false
@@ -51,21 +69,11 @@ Rails/Validation:
 Style/BarePercentLiterals:
   EnforcedStyle: percent_q
 
-Naming/VariableNumber:
-  Enabled: false
-
 Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Documentation:
-  Exclude:
-    - "app/controllers/application_controller.rb"
-    - "app/helpers/**/*_helper.rb"
-    - "app/mailers/**/*_mailer.rb"
-    - "app/models/application_record.rb"
-    - "config/**/*"
-    - "db/**/*"
-    - "spec/**/*"
+  Enabled: false
 
 Style/DoubleNegation:
   Enabled: false
@@ -76,14 +84,8 @@ Style/EmptyMethod:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/HashSyntax:
-  EnforcedStyle: ruby19
-
 Style/NumericPredicate:
   Enabled: false
-
-Style/SpaceAroundEqualsInParameterDefault:
-  EnforcedStyle: no_space
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
@@ -91,5 +93,5 @@ Style/StringLiterals:
 Style/TrivialAccessors:
   AllowPredicates: true
 
-Style/VariableNumber:
-  Enabled: false
+Style/HashSyntax:
+  EnforcedStyle: ruby19

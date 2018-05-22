@@ -1,4 +1,9 @@
 module LayoutHelper
+
+  def critical_css
+    raw @critical_css
+  end
+
   # Embeds an svg directly into the DOM. Use paths as known with any asset-helper within rails.
   #
   # Usage:

@@ -1,4 +1,4 @@
-RAILS_REQUIREMENT = '~> 5.1.0'.freeze
+RAILS_REQUIREMENT = '~> 5.2.0'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -41,10 +41,11 @@ def apply_template!
   empty_directory '.git/safe'
 
   run_with_clean_bundler_env 'bin/setup'
+  create_initial_migration
   generate_spring_binstubs
 
   binstubs = %w[
-    annotate brakeman bundler bundler-audit guard rubocop terminal-notifier
+    annotate brakeman bundler bundler-audit guard rubocop terminal-notifier sidekiq
   ]
   binstubs.push('capistrano', 'unicorn') if apply_capistrano?
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
@@ -80,7 +81,7 @@ def apply_template!
 
   unless any_local_git_commits?
     git add: '-A .'
-    git commit: "-n -m 'Set up project'"
+    git commit: "-n -m '[template] Set up project'"
     git checkout: '-b development' if apply_capistrano?
     if git_repo_specified?
       git remote: "add origin #{git_repo_url.shellescape}"
@@ -244,6 +245,12 @@ end
 
 def run_rubocop_autocorrections
   run_with_clean_bundler_env "bin/rubocop -a --fail-level A > /dev/null || true"
+end
+
+def create_initial_migration
+  return if Dir["db/migrate/**/*.rb"].any?
+  run_with_clean_bundler_env "bin/rails generate migration initial_migration"
+  run_with_clean_bundler_env "bin/rake db:migrate"
 end
 
 apply_template!

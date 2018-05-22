@@ -1,10 +1,12 @@
 apply 'config/application.rb'
+apply 'config/boot.rb'
 copy_file 'config/brakeman.yml'
 template 'config/critical_path_css.yml.tt'
 template 'config/database.example.yml.tt'
 remove_file 'config/database.yml'
 copy_file 'config/puma.rb', force: true
 remove_file 'config/secrets.yml'
+copy_file 'config/sidekiq.yml'
 
 if apply_capistrano?
   template 'config/deploy.rb.tt'
@@ -22,6 +24,7 @@ copy_file 'config/initializers/rotate_log.rb'
 copy_file 'config/initializers/secret_token.rb'
 copy_file 'config/initializers/serviceworker.rb'
 copy_file 'config/initializers/version.rb'
+template 'config/initializers/sidekiq.rb.tt'
 
 gsub_file 'config/initializers/filter_parameter_logging.rb', /\[:password\]/ do
   '%w[password secret session cookie csrf]'
@@ -36,4 +39,6 @@ apply 'config/environments/production.rb'
 apply 'config/environments/test.rb'
 template 'config/environments/staging.rb.tt'
 
+route 'match "*unmatched", to: "errors#route_not_found", via: :all'
 route 'root "home#index"'
+route %Q(mount Sidekiq::Web => '/sidekiq' # monitoring console\n)
