@@ -37,7 +37,9 @@ end
 group :development do
   gem 'annotate', '>= 2.5.0'
   gem 'awesome_print'
+<% if apply_capistrano? -%>
   gem 'bcrypt_pbkdf', require: false
+<% end -%>
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman', require:  false
@@ -49,19 +51,21 @@ group :development do
   gem 'capistrano-nc', require:  false
   gem 'capistrano-rails', require:  false
   gem 'capistrano-faster-assets', require: false
+  gem 'ed25519', '~> 1.2', require: false
 <% end -%>
   gem 'guard', '>= 2.2.2', require:  false
   gem 'guard-livereload', require:  false
   gem 'letter_opener'
   gem 'listen'<%= gemfile_requirement('listen') %>
+<% if apply_capistrano? -%>
+  gem 'net-ssh', '>= 5.0.0', require: false
+<% end -%>
 <% if gemfile_requirement('puma') && apply_capistrano? -%>
   gem 'puma'<%= gemfile_requirement('puma') %>
 <% end -%>
   gem 'rack-livereload'
   gem 'rails_real_favicon'
   gem 'rb-readline', require: false
-  gem 'rbnacl', '~> 3.4', require: false
-  gem 'rbnacl-libsodium', require: false
   gem 'rubocop', '>= 0.53.0', require: false
   gem 'simplecov', require:  false
   gem 'spring'
