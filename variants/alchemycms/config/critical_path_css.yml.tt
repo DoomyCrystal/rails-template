@@ -5,9 +5,9 @@ defaults: &defaults
   # css_path: /path/to/css/from/public/main.css
   routes:
     - /
-    <% Alchemy::Page.published.each do |page| %>
-    - /<%= page.urlname.to_s %>
-    <% end %>
+    <%% Alchemy::Page.published.each do |page| %>
+    - /<%%= page.urlname.to_s %>
+    <%% end %>
 
 development:
   <<: *defaults
