@@ -1,39 +1,24 @@
-.navbar.navbar-default.navbar-static-top{:role => "navigation"}
+%nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
   .container
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to("<%= app_const_base.titleize %>", root_path, :class => "navbar-brand")
-    .navbar-collapse.collapse
-      %ul.nav.navbar-nav
-        = navbar_link_to("Home", root_path, :active_when => { :controller => "home" })
-        %li
-          %a{:href => "#contact"} Contact
-        %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            Dropdown
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider
-            %li.dropdown-header Nav header
-            %li
-              %a{:href => "#"} Separated link
-            %li
-              %a{:href => "#"} One more separated link
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          %a{:href => "#"} Log in
-        %li
-          %a{:href => "#"} Register
-        %li
-          %a{:href => "#"} Help
-    / /.nav-collapse
+    = link_to("<%= app_const_base.titleize %>", root_path, :class => "navbar-brand")
+    %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarsExampleDefault.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          = navbar_link_to("Home", root_path, active_when: { controller: "home" }, class: 'nav-link')
+        %li.nav-item
+          %a.nav-link{:href => "#"} Contact
+        %li.nav-item.dropdown
+          %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Dropdown
+          .dropdown-menu{"aria-labelledby" => "dropdown01"}
+            %a.dropdown-item{:href => "#"} Action
+            %a.dropdown-item{:href => "#"} Another action
+            %a.dropdown-item{:href => "#"} Something else here
+      %ul.navbar-nav.float-right
+        %li.nav-item
+          %a.nav-link{:href => "#"} Log in
+        %li.nav-item
+          %a.nav-link{:href => "#"} Register
+        %li.nav-item
+          %a.nav-link{:href => "#"} Help

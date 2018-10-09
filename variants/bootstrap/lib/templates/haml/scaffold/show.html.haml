@@ -1,11 +1,11 @@
 - provide(:title) do
   <%= singular_table_name.titleize %> ##{@<%= singular_table_name %>.id}
 
-%table.table.table-bordered
+%table.table.table-bordered.table-sm
   %tbody
 <% attributes.reject(&:password_digest?).each do |attribute| -%>
     %tr
-      %th.col-sm-2 <%= attribute.human_name %>
+      %th <%= attribute.human_name %>
       %td= @<%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
 
