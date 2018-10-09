@@ -20,7 +20,7 @@ gem 'puma'<%= gemfile_requirement('puma') %>
 <% end -%>
 gem 'rails', '~> <%= Rails.version %>'
 gem 'rails-i18n'
-gem 'sass-rails'<%= gemfile_requirement('sass-rails') %>
+gem 'sass-rails'<%= gemfile_requirement('sass-rails') || ', "~> 5.0"' %>
 gem 'serviceworker-rails'
 gem 'sidekiq', '>= 4.2.0'
 gem "turbolinks"<%= gemfile_requirement("turbolinks") || ', ">= 2.5.2"' %>
@@ -66,7 +66,7 @@ group :development do
   gem 'rack-livereload'
   gem 'rails_real_favicon'
   gem 'rb-readline', require: false
-  gem 'rubocop', '>= 0.53.0', require: false
+  gem 'rubocop', '>= 0.58.0', require: false
   gem 'simplecov', require:  false
   gem 'spring'
   gem 'sshkit', '~> 1.16', require:  false
