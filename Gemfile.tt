@@ -20,10 +20,10 @@ gem 'puma'<%= gemfile_requirement('puma') %>
 <% end -%>
 gem 'rails', '~> <%= Rails.version %>'
 gem 'rails-i18n'
-gem 'sass-rails'<%= gemfile_requirement('sass-rails') || ', "~> 5.0"' %>
+gem 'sassc-rails'
 gem 'serviceworker-rails'
 gem 'sidekiq', '>= 4.2.0'
-gem "turbolinks"<%= gemfile_requirement("turbolinks") || ', ">= 2.5.2"' %>
+gem 'turbolinks'<%= gemfile_requirement('turbolinks') || ', ">= 2.5.2"' %>
 gem 'uglifier'
 
 group :production, :staging do

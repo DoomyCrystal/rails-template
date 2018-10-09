@@ -1,7 +1,7 @@
 insert_into_file 'Gemfile', :after => /gem 'bcrypt'.*\n/ do
   <<-GEMS.strip_heredoc
-    gem 'bootstrap_form', git: 'https://github.com/bootstrap-ruby/rails-bootstrap-forms.git', branch: 'master'
-    gem 'bootstrap', '~> 4.1.1'
+    gem 'bootstrap_form', '>= 4.0.0.alpha1'
+    gem 'bootstrap', '~> 4.1.3'
   GEMS
 end
 
