@@ -7,7 +7,7 @@ gem 'autoprefixer-rails', '>= 5.0.0.1'
 gem 'bcrypt'<%= gemfile_requirement('bcrypt') %>
 gem 'bootsnap', '>= 1.2.0', require:  false
 gem 'coffee-rails'<%= gemfile_requirement('coffee-rails') %>
-gem 'critical-path-css-rails', '~> 0.4.0'
+gem 'critical-path-css-rails', '~> 2.6.0'
 gem 'dotenv-rails', '>= 2.0.0'
 gem 'haml-rails', '~> 1.0.0'
 gem 'jquery-rails'<%= gemfile_requirement('jquery-rails') %>
