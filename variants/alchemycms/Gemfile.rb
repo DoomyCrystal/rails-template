@@ -2,7 +2,6 @@ insert_into_file 'Gemfile', after: /gem 'bcrypt'.*\n/ do
   <<-GEMS.strip_heredoc
     gem 'alchemy_cms', '~> 4.1.0'
     gem 'alchemy-richmedia-essences', '~> 2.0.0'
-    gem 'image_optim_pack'
     gem 'sitemap_generator'
   GEMS
 end

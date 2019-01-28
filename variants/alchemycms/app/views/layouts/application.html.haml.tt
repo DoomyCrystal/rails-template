@@ -23,8 +23,12 @@
     = render('shared/flash')
     %main#main-content.l-main= yield
     - if trackable?
-      :javascript
-        window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-        ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-      %script{async: '', defer: 'defer', src: 'https://www.google-analytics.com/analytics.js'}
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-XXXXX-Y-1', { 'anonymize_ip': true });
+      </script>
     = render 'alchemy/edit_mode'
