@@ -83,11 +83,11 @@ end
 
 group :test do
   gem 'capybara'<%= gemfile_requirement("capybara") %>
-  gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
   gem 'shoulda'
+  gem "webdrivers"<%= gemfile_requirement("webdrivers") %>
 end
 
 group :development, :test do
