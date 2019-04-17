@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby "<%= RUBY_VERSION %>"
 
-# gem 'active_type', '>= 0.3.2'
 gem 'autoprefixer-rails', '>= 5.0.0.1'
 gem 'bcrypt'<%= gemfile_requirement('bcrypt') %>
 gem 'bootsnap', '>= 1.2.0', require:  false
@@ -66,7 +65,8 @@ group :development do
   gem 'rack-livereload'
   gem 'rails_real_favicon'
   gem 'rb-readline', require: false
-  gem 'rubocop', '>= 0.58.0', require: false
+  gem "rubocop", ">= 0.67.2", require: false
+  gem "rubocop-performance", require: false
   gem 'simplecov', require:  false
   gem 'spring'
   gem 'sshkit', '~> 1.16', require:  false
