@@ -25,7 +25,8 @@ gem 'uglifier'
 gem 'unpoly-rails'
 
 group :production, :staging do
-  gem 'mailgun_rails'
+  gem 'mailgunner'
+  gem 'rack-cache', require: 'rack/cache'
 <% if apply_capistrano? -%>
   gem 'unicorn'
   gem 'unicorn-worker-killer'
