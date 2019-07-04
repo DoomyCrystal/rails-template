@@ -22,6 +22,7 @@ gem 'sassc-rails'
 gem 'serviceworker-rails'
 gem 'sidekiq', '>= 4.2.0'
 gem 'uglifier'
+gem 'unpoly-rails'
 
 group :production, :staging do
   gem 'mailgun_rails'

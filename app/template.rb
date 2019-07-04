@@ -9,6 +9,7 @@ copy_file 'app/assets/stylesheets/base.scss'
 copy_file 'app/assets/stylesheets/layout.scss'
 remove_file 'app/assets/stylesheets/application.css'
 
+copy_file 'app/assets/javascripts/application.js', force: true
 copy_file 'app/assets/javascripts/serviceworker.js.erb'
 copy_file 'app/assets/javascripts/serviceworker-companion.js'
 
