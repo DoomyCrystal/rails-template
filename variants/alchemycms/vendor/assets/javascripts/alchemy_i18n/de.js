@@ -21,9 +21,8 @@ Alchemy.translations.de = {
   'Uploaded bytes exceed file size': 'Maximale Größe der erlaubten Dateigröße erreicht.',
   formats: {
     datetime: "d.m.Y H:i",
-    datetimepicker: "d.m.Y H:i",
     date: "d.m.Y",
     time: "H:i",
-    start_of_week: 1
+    time_24hr: true
   }
 };

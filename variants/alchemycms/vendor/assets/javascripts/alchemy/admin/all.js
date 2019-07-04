@@ -11,3 +11,4 @@
 //= require alchemy/admin
 //= require alchemy_i18n/de
 //= require select2_locale_de
+//= require flatpickr/de
