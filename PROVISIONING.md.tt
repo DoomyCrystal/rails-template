@@ -24,7 +24,7 @@ Capistrano runs on your local machine and uses SSH to perform the deployment on 
 
 Furthermore, the server itself must meet the following requirements:
 
-* Ubuntu 16.04 LTS (64 bit).
+* Ubuntu 18.04 LTS (64 bit).
 
 
 ## 1. Create a new stage (or edit an existing one)

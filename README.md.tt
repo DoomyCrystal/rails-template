@@ -47,10 +47,14 @@ Run the `bin/setup` script. This script will:
 
 Ensure the following environment variables are set in the deployment environment:
 
+* `MAILGUN_API_KEY`
+* `MAILGUN_DOMAIN`
 * `RACK_ENV`
 * `RAILS_ENV`
 * `REDIS_URL`
 * `SECRET_KEY_BASE`
+* `SIDEKIQ_WEB_PASSWORD`
+* `SIDEKIQ_WEB_USERNAME`
 
 Optionally:
 

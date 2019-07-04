@@ -67,7 +67,7 @@ The template will perform the following steps:
 #### These gems are added to the standard Rails stack
 
 * Core
-    * [active_type][] – for building simple and effective form/service objects
+    * [sidekiq][] – Redis-based job queue implementation for Active Job    
 * Configuration
     * [dotenv][] – in place of the Rails `secrets.yml`
 * Utilities
@@ -78,8 +78,8 @@ The template will perform the following steps:
     * [guard][] – runs tests as you develop; mandatory for effective TDD
     * [livereload][] – magically refreshes browsers whenever you save a file
     * [rubocop][] – enforces Ruby code style
-    * [xray-rails][] – inspect view partials in the browser
     * [haml-rails][] - use haml instead of erb
+    * [unpoly][] - an unobtrusive JavaScript framework for server-side web applications
 * Deployment via Capistrano (optional)
     * [capistrano-mb][] – capistrano recipes
     * [unicorn][] – the industry-standard Rails server
@@ -131,8 +131,9 @@ This temporary directory is then added to the `source_paths` of the Rails genera
 
 Rails generators are very lightly documented; what you’ll find is that most of the heavy lifting is done by [Thor][]. The most common methods used by this template are Thor’s `copy_file`, `template`, and `gsub_file`. You can dig into the well-organized and well-documented [Thor source code][thor] to learn more.
 
-[active_type]:https://github.com/makandra/active_type
+[sidekiq]:http://sidekiq.org
 [haml-rails]:https://github.com/indirect/haml-rails
+[unpoly]:https://unpoly.com/
 [dotenv]:https://github.com/bkeepers/dotenv
 [annotate]:https://github.com/ctran/annotate_models
 [autoprefixer-rails]:https://github.com/ai/autoprefixer-rails
@@ -141,7 +142,6 @@ Rails generators are very lightly documented; what you’ll find is that most of
 [guard]:https://github.com/guard/guard
 [livereload]:https://github.com/guard/guard-livereload
 [rubocop]:https://github.com/bbatsov/rubocop
-[xray-rails]:https://github.com/brentd/xray-rails
 [capistrano-mb]:https://github.com/mattbrictson/capistrano-mb
 [unicorn]:http://unicorn.bogomips.org
 [unicorn-worker-killer]:https://github.com/kzk/unicorn-worker-killer
