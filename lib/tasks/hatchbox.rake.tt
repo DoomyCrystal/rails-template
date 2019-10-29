@@ -7,7 +7,7 @@ namespace :hatchbox do
     task db: :environment do
       puts '➙ Generating production DB dump...'
       execute_on_server %(
-      pg_dump #{ENV['PSQL_DATA_URI']} --column-inserts --no-owner --no-privileges > backup.sql
+      pg_dump #{ENV['PSQL_DATA_URI']} --column-inserts --no-owner --no-privileges > #{backup_file_name}
     )
 
       puts '➙ Downloading production DB dump...'
@@ -17,7 +17,8 @@ namespace :hatchbox do
       execute_on_server "rm #{backup_file_name}"
 
       puts '➙ Cleaning your local DB...'
-      %w[drop create].each {|task| Rake::Task["db:#{task}"].invoke}
+      system 'bin/rails db:environment:set RAILS_ENV=development'
+      %w[drop create].each { |task| Rake::Task["db:#{task}"].invoke }
 
       puts '➙ Importing production DB dump...'
       system "bin/rails db -e development < #{backup_file_name} > /dev/null"
@@ -42,14 +43,14 @@ namespace :hatchbox do
 
       if options[:alchemy]
         puts '➙ Downloading alchemy assets...'
-        system "scp -r #{server_user_and_host}:/home/deploy/<%= app_name %>/current/uploads ."
+        system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= app_name %>/current/uploads ."
       end
 
       puts '➙ Downloading storage assets...'
-      system "scp -r #{server_user_and_host}:/home/deploy/<%= app_name %>/current/storage ."
+      system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= app_name %>/current/storage ."
 
       puts '➙ Downloading public/system assets...'
-      system "scp -r #{server_user_and_host}:/home/deploy/<%= app_name %>/current/public/system ./public"
+      system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= app_name %>/current/public/system ./public"
 
       puts '➙ Assets downloaded!'
     end
@@ -71,7 +72,7 @@ namespace :hatchbox do
   end
 
   def backup_file_name
-    'backup.sql'
+    'backup.dump'
   end
 
 end
