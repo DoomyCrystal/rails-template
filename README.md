@@ -4,15 +4,13 @@
 
 *Forked from mattbrictson/rails-template*
 
-This is the application template that I use for my Rails 5.2 projects. As a freelance Rails developer, I need to be able to start new projects quickly and with a good set of defaults. I've assembled this template over the years to include best-practices, tweaks, documentation, and personal preferences, while still generally adhering to the "Rails way".
-
-*For Rails 4.2 projects, use the [rails-42 branch](https://github.com/m43nu/rails-template/tree/rails-42).*
+This is the application template that We use for my Rails 6 projects.
 
 ## Requirements
 
 This template currently works with:
 
-* Rails 5.2.x
+* Rails 6.0.x
 * PostgreSQL
 
 If you need help setting up a Ruby development environment, check out Matt Brictsons [Rails OS X Setup Guide](https://mattbrictson.com/rails-osx-setup-guide).
@@ -30,11 +28,10 @@ To make this the default Rails application template on your system, create a `~/
 
 ## Usage
 
-This template assumes you will store your project in a remote git repository (e.g. Bitbucket or GitHub) and that you will deploy to staging and production environments. It will prompt you for this information in order to pre-configure your app, so be ready to provide:
+This template assumes you will store your project in a remote git repository (e.g. Bitbucket or GitHub) and that you will deploy to a production environment. It will prompt you for this information in order to pre-configure your app, so be ready to provide:
 
 1. The git URL of your (freshly created and empty) Bitbucket/GitHub repository
-2. The hostname of your staging server
-3. The hostname of your production server
+2. The hostname of your production server
 
 To generate a Rails application using this template, pass the `-m` option to `rails new`, like this:
 

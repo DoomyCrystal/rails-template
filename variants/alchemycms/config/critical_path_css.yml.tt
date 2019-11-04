@@ -13,10 +13,6 @@ development:
   <<: *defaults
   base_url: http://localhost:3000
 
-staging:
-  <<: *defaults
-  base_url: http://<%= staging_hostname %>
-
 production:
   <<: *defaults
   base_url: https://<%= production_hostname %>

@@ -1,4 +1,5 @@
-RAILS_REQUIREMENT = '~> 5.2.0'.freeze
+require "bundler"
+RAILS_REQUIREMENT = '~> 6.0.0'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -43,6 +44,7 @@ def apply_template!
   empty_directory '.git/safe'
 
   run_with_clean_bundler_env 'bin/setup'
+  run_with_clean_bundler_env "bin/rails webpacker:install"
   create_initial_migration
   generate_spring_binstubs
 
@@ -167,11 +169,6 @@ end
 def production_hostname
   @production_hostname ||=
       ask_with_default('Production hostname?', :blue, 'example.com')
-end
-
-def staging_hostname
-  @staging_hostname ||=
-      ask_with_default('Staging hostname?', :blue, 'staging.example.com')
 end
 
 def privileged_user

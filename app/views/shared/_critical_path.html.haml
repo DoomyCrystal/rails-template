@@ -1,5 +1,5 @@
 %meta{name: 'fullcss', content: stylesheet_path('application')}
-%meta{name: 'fulljs', content: javascript_path('application')}
+%meta{name: 'fulljs', content: javascript_pack_path('application')}
 - if cookies['fullcss'] == 'true' || !critical_css.present?
   = stylesheet_link_tag 'application', media: 'all'
 - else
