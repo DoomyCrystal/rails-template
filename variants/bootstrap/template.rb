@@ -3,7 +3,7 @@ source_paths.unshift(File.dirname(__FILE__))
 apply 'Gemfile.rb'
 apply 'app/assets/stylesheets/application.scss.rb'
 copy_file 'app/assets/stylesheets/bootstrap-custom.scss'
-copy_file 'app/assets/javascripts/application.js', force: true
+copy_file 'app/assets/javascripts/application.js.es6', force: true
 copy_file 'app/assets/stylesheets/globals/_all.scss', force: true
 copy_file 'app/assets/stylesheets/globals/_animations.scss', force: true
 copy_file 'app/assets/stylesheets/globals/_functions.scss', force: true

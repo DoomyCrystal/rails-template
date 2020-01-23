@@ -4,10 +4,12 @@ ruby "<%= RUBY_VERSION %>"
 
 gem 'autoprefixer-rails', '>= 5.0.0.1'
 gem 'bcrypt'<%= gemfile_requirement('bcrypt') %>
+gem 'babel-transpiler'
 gem "bootsnap"<%= gemfile_requirement("bootsnap") %>, require: false
 gem 'critical-path-css-rails', '~> 2.6.0'
 gem 'dotenv-rails', '>= 2.0.0'
 gem 'haml-rails', '~> 1.0.0'
+gem 'jquery-rails'
 gem 'pg'<%= gemfile_requirement('pg') %>
 gem 'pgcli-rails'
 <% unless apply_capistrano? -%>
@@ -19,9 +21,11 @@ gem "redis"<%= gemfile_requirement("redis") %>
 gem "sass-rails", "~> 6.0"
 gem 'serviceworker-rails'
 gem 'sidekiq', '>= 4.2.0'
+gem 'sprockets', '~> 4.0'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'uglifier'
 gem 'unpoly-rails'
-gem "webpacker"<%= gemfile_requirement("webpacker") %>
+gem 'whenever', require: false
 
 group :production do
   gem 'mailgunner'
@@ -80,7 +84,6 @@ group :development do
 <% unless gemfile_requirement('puma') -%>
   gem 'thin', require: false
 <% end -%>
-  # gem 'xray-rails', '>= 0.1.18'
 end
 
 group :test do

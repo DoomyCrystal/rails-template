@@ -44,7 +44,7 @@ def apply_template!
   empty_directory '.git/safe'
 
   run_with_clean_bundler_env 'bin/setup'
-  run_with_clean_bundler_env "bin/rails webpacker:install"
+  # run_with_clean_bundler_env "bin/rails webpacker:install"
   create_initial_migration
   generate_spring_binstubs
 
@@ -137,6 +137,7 @@ def assert_valid_options
       skip_bundle: false,
       skip_git: false,
       skip_test_unit: true,
+      skip_javascript: true,
       edge: false
   }
   valid_options.each do |key, expected|
