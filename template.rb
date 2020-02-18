@@ -44,7 +44,6 @@ def apply_template!
   empty_directory '.git/safe'
 
   run_with_clean_bundler_env 'bin/setup'
-  # run_with_clean_bundler_env "bin/rails webpacker:install"
   create_initial_migration
   generate_spring_binstubs
 
@@ -204,7 +203,7 @@ def any_local_git_commits?
 end
 
 def apply_bootstrap?
-  ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'no')\
+  ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'yes')\
     =~ /^y(es)?/i
 end
 
@@ -227,7 +226,7 @@ end
 def apply_capistrano?
   return @apply_capistrano if defined?(@apply_capistrano)
   @apply_capistrano = \
-     ask_with_default('Use Capistrano for deployment?', :blue, 'yes') \
+     ask_with_default('Use Capistrano for deployment?', :blue, 'no') \
      =~ /^y(es)?/i
 end
 
