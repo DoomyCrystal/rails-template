@@ -1,106 +1,41 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "<%= RUBY_VERSION %>"
+ruby '<%= RUBY_VERSION %>'
 
-gem 'autoprefixer-rails', '>= 5.0.0.1'
-gem 'bcrypt'<%= gemfile_requirement('bcrypt') %>
-gem 'babel-transpiler'
-gem "bootsnap"<%= gemfile_requirement("bootsnap") %>, require: false
-gem "coffee-rails"<%= gemfile_requirement("coffee-rails") %>
-gem 'critical-path-css-rails', '~> 2.6.0'
-gem 'dotenv-rails', '>= 2.0.0'
-gem 'haml-rails', '~> 1.0.0'
-gem 'jquery-rails'
-gem 'pg'<%= gemfile_requirement('pg') %>
-gem 'pgcli-rails'
-<% unless apply_capistrano? -%>
-gem "puma", "~> 4.1"
-<% end -%>
-gem "rack-canonical-host", "~> 0.2.3"
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'dotenv-rails', '>= 2.7.5'
+gem 'pg', '>= 0.18', '< 2.0'
+gem 'puma', '~> 4.1'
 gem 'rails', '~> <%= Rails.version %>'
 gem 'rails-i18n'
-gem "redis"<%= gemfile_requirement("redis") %>
-gem "sass-rails", "~> 6.0"
-gem 'serviceworker-rails'
-gem 'sidekiq', '>= 4.2.0'
-gem 'sprockets', '~> 4.0'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
-gem 'uglifier'
+gem 'redis', '~> 4.0'
+
+gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'unpoly-rails'
+gem 'webpacker'<%= gemfile_requirement("webpacker") %>
 gem 'whenever', require: false
 
-group :production do
-  gem 'mailgunner'
-  gem 'rack-cache', require: 'rack/cache'
-<% if apply_capistrano? -%>
-  gem 'unicorn'
-  gem 'unicorn-worker-killer'
-<% end -%>
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
   gem 'annotate', '>= 2.5.0'
-  gem 'awesome_print'
-<% if apply_capistrano? -%>
-  gem 'bcrypt_pbkdf', require: false
-<% end -%>
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'brakeman', require:  false
-  gem 'bundler-audit', '>= 0.5.0', require:  false
-<% if apply_capistrano? -%>
-  gem 'capistrano', '~> 3.10', require:  false
-  gem 'capistrano-bundler',  '~> 1.3', require:  false
-  gem 'capistrano-mb', '>= 0.33.0', require:  false
-  gem 'capistrano-nc', require:  false
-  gem 'capistrano-rails', require:  false
-  gem 'capistrano-faster-assets', require: false
-  gem 'ed25519', '~> 1.2', require: false
-<% end -%>
-  gem 'guard', '>= 2.2.2', require:  false
-  gem 'guard-livereload', '~> 2.5', require: false
   gem 'letter_opener'
-  gem 'listen'<%= gemfile_requirement('listen') %>
-<% if apply_capistrano? -%>
-  gem 'net-ssh', '>= 5.0.0', require: false
-<% end -%>
-<% if gemfile_requirement('puma') && apply_capistrano? -%>
-  gem 'puma'<%= gemfile_requirement('puma') %>
-<% end -%>
-  gem 'rack-livereload'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rails_real_favicon'
-  gem 'rb-readline', require: false
-  gem "rubocop", ">= 0.70.0", require: false
-  gem "rubocop-performance", require: false
-  gem "rubocop-rails", require: false
-<% if apply_capistrano? -%>
-  gem "sshkit", "~> 1.16", require: false
-<% end -%>
-  gem 'simplecov', require:  false
   gem 'spring'
-<% if gemfile_requirement('spring-watcher-listen') -%>
-  gem 'spring-watcher-listen'<%= gemfile_requirement('spring-watcher-listen') %>
-<% end -%>
-  gem 'terminal-notifier', require:  false
-  gem 'terminal-notifier-guard', require:  false
-<% unless gemfile_requirement('puma') -%>
-  gem 'thin', require: false
-<% end -%>
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
-  gem 'capybara'<%= gemfile_requirement("capybara") %>
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'poltergeist'
-  gem "selenium-webdriver"
-  gem 'shoulda'
-  gem "webdrivers"
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
-group :development, :test do
-  gem 'byebug'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'rspec-rails', '~> 3.5'
+group :production do
+  gem 'mailgunner'
+  gem 'rack-cache', require: 'rack/cache'
 end

@@ -1,10 +1,3 @@
-insert_into_file 'config/environments/production.rb',
-                 after: /# config\.assets\.css_compressor = :sass\n/ do
-  <<-RUBY
-  config.assets.css_compressor = :sass
-  RUBY
-end
-
 uncomment_lines 'config/environments/production.rb',
                 /config\.action_dispatch\.x_sendfile_header = 'X-Accel-Redirect' # for NGINX/i
 

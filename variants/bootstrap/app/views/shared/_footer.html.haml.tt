@@ -1,2 +1,0 @@
-%footer.l-footer
-  %p © <%= app_const_base.titleize %> #{Time.zone.now.strftime("%Y")}

@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// Basic styles
+// -----------------------------------------------------------------------------
+
+// example:
+// https://github.com/HugoGiraudel/sass-boilerplate/blob/master/stylesheets/base/_base.scss
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-width: 100vw;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

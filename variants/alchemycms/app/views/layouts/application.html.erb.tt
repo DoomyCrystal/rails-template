@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="no-js" lang="<%%= "{@page.language.code}-#{@page.language.country_code.blank? ? @page.language.code.upcase : @page.language.country_code.upcase}" %>">
+<head>
+  <title>
+    <%%= strip_tags(yield(:title)) + " – " if content_for?(:title) %>
+    <%= app_const_base.titleize %>
+  </title>
+
+  <%%= csrf_meta_tags %>
+  <%%= csp_meta_tag %>
+
+  <!-- <%= app_const_base.titleize %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
+
+  <%%= stylesheet_pack_tag 'application', media: 'all' %>
+  <%%= javascript_pack_tag 'application' %>
+
+  <%%= yield(:head) %>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%%= t('.meta_description') %>">
+  <meta name="apple-mobile-web-app-title" content="<%= app_const_base.titleize %>">
+</head>
+<body class="page-<%%= @page.page_layout %>">
+<!--[if IE]>
+<p class="browserupgrade">Sie benutzen einen <strong>veralteten</strong> Browser. Bitte
+<a href="https://browsehappy.com/">aktualisieren Sir Ihren Browser</a> um diese Seite optimal zu nutzen.</p>
+<![endif]-->
+
+<%%= yield %>
+
+<%%= render 'alchemy/edit_mode' %>
+</body>
+</html>

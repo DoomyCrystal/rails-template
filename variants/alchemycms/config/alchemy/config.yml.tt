@@ -162,6 +162,7 @@ uploader:
     - gif
     - png
     - svg
+    - webp
 
 # === Link Target Options
 #
