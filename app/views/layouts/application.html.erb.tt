@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html class="no-js" lang="de-CH">
 <head>
+  <!-- <%= app_const_base.titleize %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
   <title>
     <%%= strip_tags(yield(:title)) + " – " if content_for?(:title) %>
     <%= app_const_base.titleize %>
@@ -9,9 +12,9 @@
   <%%= csrf_meta_tags %>
   <%%= csp_meta_tag %>
 
-  <!-- <%= app_const_base.titleize %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
-
   <%%= stylesheet_pack_tag 'application', media: 'all' %>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
   <%%= javascript_pack_tag 'application' %>
 
   <%%= yield(:head) %>

@@ -45,25 +45,7 @@ def apply_template!
     run_with_clean_bundler_env 'yarn add bootstrap'
   end
 
-  if apply_alchemycms?
-    apply 'variants/alchemycms/template.rb'
-
-    remove_file 'app/controllers/home_controller.rb'
-    remove_file 'app/views/home/index.html.haml'
-    FileUtils.rm_r File.expand_path('app/views/home', destination_root)
-
-    run 'bundle update'
-    run 'bin/rake alchemy:install'
-    run 'bin/rails g alchemy:devise:install'
-
-    # alchemy creates that stuff again
-    remove_file 'app/assets/stylesheets/application.css'
-    # copy our customized config-file
-    template 'config/alchemy/config.yml.tt', force: true
-
-    # recreate db, as the main language seems to be set to the wrong one
-    run 'bin/rake db:reset'
-  end
+  apply 'variants/alchemycms/template.rb' if apply_alchemycms?
 
   unless any_local_git_commits?
     git add: '-A .'
