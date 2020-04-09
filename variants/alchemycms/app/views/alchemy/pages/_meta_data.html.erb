@@ -1,6 +1,6 @@
 <%- if @page -%>
   <title>
-    <%= page_title prefix: local_assigns.fetch(:title_prefix, nil), separator: local_assigns.fetch(:title_separator, nil) %>
+    <%= alchemy_page_title suffix: local_assigns.fetch(:title_suffix, nil), prefix: local_assigns.fetch(:title_prefix, nil), separator: local_assigns.fetch(:title_separator, nil) %>
   </title>
   <%- if @page == Alchemy::Language.current_root_page -%>
     <link rel="canonical" href="<%= request.original_url == main_app.alchemy_url ? show_alchemy_page_url(@page) : main_app.alchemy_url %>">

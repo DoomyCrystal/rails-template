@@ -4,6 +4,7 @@
  */
 
 // import only the necessary plugins individually
+import 'popper.js'
 import 'bootstrap/js/dist/util'
 import 'bootstrap/js/dist/alert'
 import 'bootstrap/js/dist/button'

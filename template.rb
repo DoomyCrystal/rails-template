@@ -38,6 +38,12 @@ def apply_template!
   ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
   run_with_clean_bundler_env 'yarn add unpoly'
+  run_with_clean_bundler_env 'yarn add @fullhuman/postcss-purgecss --dev'
+
+  # we need to do this after the webpacker:install
+  copy_file 'postcss.config.js', force: true
+  copy_file 'config/webpack/development.js', force: true
+  copy_file 'config/webpacker.yml', force: true
 
   if apply_bootstrap?
     apply 'variants/bootstrap/template.rb'
