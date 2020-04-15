@@ -17,6 +17,7 @@ def apply_template!
   template 'example.env.tt'
   copy_file 'gitignore', '.gitignore', force: true
   template 'ruby-version.tt', '.ruby-version', force: true
+  copy_file 'Procfile.dev', 'Procfile.dev'
 
   apply 'app/template.rb'
   apply 'bin/template.rb'
