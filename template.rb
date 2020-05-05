@@ -16,6 +16,7 @@ def apply_template!
 
   template 'example.env.tt'
   copy_file 'gitignore', '.gitignore', force: true
+  copy_file 'yarnclean', '.yarnclean', force: true
   template 'ruby-version.tt', '.ruby-version', force: true
   copy_file 'Procfile.dev', 'Procfile.dev'
 
@@ -39,7 +40,7 @@ def apply_template!
   ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
   run_with_clean_bundler_env 'yarn add unpoly'
-  run_with_clean_bundler_env 'yarn add @fullhuman/postcss-purgecss --dev'
+  run_with_clean_bundler_env 'yarn add @fullhuman/postcss-purgecss'
 
   # we need to do this after the webpacker:install
   copy_file 'postcss.config.js', force: true
