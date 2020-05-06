@@ -41,6 +41,7 @@ def apply_template!
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
   run_with_clean_bundler_env 'yarn add unpoly'
   run_with_clean_bundler_env 'yarn add @fullhuman/postcss-purgecss'
+  run_with_clean_bundler_env 'yarn add jquery'
 
   # we need to do this after the webpacker:install
   copy_file 'postcss.config.js', force: true
@@ -49,8 +50,11 @@ def apply_template!
 
   if apply_bootstrap?
     apply 'variants/bootstrap/template.rb'
+    copy_file 'config/webpack/environment.js', force: true
 
+    run_with_clean_bundler_env 'yarn add jquery'
     run_with_clean_bundler_env 'yarn add bootstrap'
+    run_with_clean_bundler_env 'yarn add popper.js'
   end
 
   apply 'variants/alchemycms/template.rb' if apply_alchemycms?
