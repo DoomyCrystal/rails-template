@@ -168,12 +168,12 @@ def any_local_git_commits?
 end
 
 def apply_bootstrap?
-  ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'yes')\
+  @apply_bootstrap ||= ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'yes')\
      =~ /^y(es)?/i
 end
 
 def apply_alchemycms?
-  ask_with_default('Install and setup AlchemyCMS?', :blue, 'no')\
+  @apply_alchemy_cms ||= ask_with_default('Install and setup AlchemyCMS?', :blue, 'no')\
      =~ /^y(es)?/i
 end
 

@@ -1,0 +1,12 @@
+<%- content_for(:title, '404: Seite nicht gefunden') -%>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8 py-5 px-lg-5">
+      <h1 class="text-uppercase mt-lg-5 mb-3"><b>404: Seite nicht gefunden</b></h1>
+      <p>Die von Ihnen angeforderte Seite existiert nicht (mehr). Möglicherweise enthält die URL einen Tippfehler.</p>
+      <%= link_to '/', class: 'btn btn-primary' do %>
+        Weiter zur Startseite
+      <% end %>
+    </div>
+  </div>
+</div>

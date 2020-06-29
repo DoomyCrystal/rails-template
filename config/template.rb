@@ -21,5 +21,11 @@ apply 'config/environments/development.rb'
 apply 'config/environments/production.rb'
 apply 'config/environments/test.rb'
 
+
+route "match '/404', to: 'errors#not_found', via: :all"
+route "match '/500', to: 'errors#internal_server_error', via: :all"
+
 route 'root "home#index"'
 route %Q(mount Sidekiq::Web => '/sidekiq' # monitoring console\n)
+
+route "get '*all', to: 'errors#not_found' unless Rails.env.development?"
