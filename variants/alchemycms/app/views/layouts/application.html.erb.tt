@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="<%%= "{@page.language.code}-#{@page.language.country_code.blank? ? @page.language.code.upcase : @page.language.country_code.upcase}" %>">
 <head>
-  <!-- <%= app_const_base.titleize %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
+  <!-- <%= app_const_base %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <%%= render "alchemy/pages/meta_data" %>
 
