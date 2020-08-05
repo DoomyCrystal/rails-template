@@ -1,7 +1,7 @@
 require 'bundler'
 require 'json'
 require 'fileutils'
-RAILS_REQUIREMENT = '~> 6.0.2'.freeze
+RAILS_REQUIREMENT = '~> 6.0.3'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -36,7 +36,7 @@ def apply_template!
   generate_spring_binstubs
 
   binstubs = %w[
-    annotate bundler sidekiq
+    annotate bundler sidekiq yarn
   ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
   run_with_clean_bundler_env 'yarn add unpoly'

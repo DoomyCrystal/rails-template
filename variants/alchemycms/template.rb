@@ -2,7 +2,6 @@ source_paths.unshift(File.dirname(__FILE__))
 
 apply 'Gemfile.rb'
 run 'bundle update'
-run 'bin/rake alchemy:mount'
 run 'bin/rails g alchemy:install --skip-demo-files'
 `bundle exec rake railties:install:migrations`
 run 'bin/rails g alchemy:devise:install'
