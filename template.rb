@@ -36,7 +36,7 @@ def apply_template!
   generate_spring_binstubs
 
   binstubs = %w[
-    annotate bundler sidekiq yarn
+    annotate bundler sidekiq
   ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
   run_with_clean_bundler_env 'yarn add unpoly'
