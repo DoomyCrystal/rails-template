@@ -11,7 +11,12 @@ route %Q(mount Alchemy::Engine => '/'\n)
 # copy our customized config-file
 template 'config/alchemy/config.yml.tt', force: true
 
+copy_file 'app/controllers/alchemy/admin/passwords_controller.rb'
 copy_file 'app/helpers/alchemy_helper.rb'
+copy_file 'app/javascripts/packs/alchemy/admin.js'
+directory 'app/javascripts/scripts/vendor/src'
+copy_file 'app/javascripts/scripts/vendor/admin.js'
+copy_file 'app/views/alchemy/essences/_richmedia_essence_editor.html.erb'
 copy_file 'app/views/alchemy/pages/_meta_data.html.erb', force: true
 template 'app/views/layouts/application.html.erb.tt', force: true
 copy_file 'config/locales/alchemy.de.yml', force: true

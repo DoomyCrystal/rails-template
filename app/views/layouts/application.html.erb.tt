@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html class="no-js" lang="de-CH">
 <head>
-  <!-- <%= app_const_base %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
+  <!-- <%= production_hostname %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
   <title>
     <%%= strip_tags(yield(:title)) + " – " if content_for?(:title) %>
-    <%= app_const_base.titleize %>
+    <%= production_hostname %>
   </title>
 
   <%%= csrf_meta_tags %>
   <%%= csp_meta_tag %>
 
   <%%= stylesheet_pack_tag 'application', media: 'all' %>
-  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-  <%%= javascript_pack_tag 'application' %>
-
   <%%= yield(:head) %>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="<%%= t('.meta_description') %>">
-  <meta name="apple-mobile-web-app-title" content="<%= app_const_base.titleize %>">
+  <meta name="description" content="<%%= t('meta_description') %>">
+  <meta name="apple-mobile-web-app-title" content="<%%= t('meta_title') %>">
 </head>
 <body>
 <!--[if IE]>
@@ -32,6 +28,6 @@
 <![endif]-->
 
 <%%= yield %>
-
+<%%= javascript_pack_tag 'application' %>
 </body>
 </html>

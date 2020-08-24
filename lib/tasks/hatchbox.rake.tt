@@ -43,14 +43,14 @@ namespace :hatchbox do
 
       if options[:alchemy]
         puts '➙ Downloading alchemy assets...'
-        system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= app_name %>/current/uploads ."
+        system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= production_hostname %>/current/uploads ."
       end
 
       puts '➙ Downloading storage assets...'
-      system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= app_name %>/current/storage ."
+      system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= production_hostname %>/current/storage ."
 
       puts '➙ Downloading public/system assets...'
-      system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= app_name %>/current/public/system ./public"
+      system "rsync -a --del -L -K -vv --progress --rsh='ssh' #{server_user_and_host}:/home/deploy/<%= production_hostname %>/current/public/system ./public"
 
       puts '➙ Assets downloaded!'
     end
