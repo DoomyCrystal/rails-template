@@ -2,9 +2,9 @@ source_paths.unshift(File.dirname(__FILE__))
 
 apply 'Gemfile.rb'
 run 'bundle update'
-run 'bin/rails g alchemy:install --skip-demo-files'
+run 'bundle exec rails g alchemy:install --skip-demo-files'
 `bundle exec rake railties:install:migrations`
-run 'bin/rails g alchemy:devise:install'
+run 'bundle exec rails g alchemy:devise:install'
 insert_into_file 'db/seeds.rb', "Alchemy::Seeder.seed!\n"
 route %Q(mount Alchemy::Engine => '/'\n)
 
@@ -31,4 +31,4 @@ remove_file 'app/controllers/home_controller.rb'
 remove_file 'app/views/home/index.html.haml'
 FileUtils.rm_r File.expand_path('app/views/home', destination_root)
 
-run 'bin/rake db:migrate db:seed'
+run 'bundle exec rake db:migrate db:seed'
