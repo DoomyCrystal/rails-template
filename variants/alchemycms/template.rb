@@ -1,12 +1,9 @@
 source_paths.unshift(File.dirname(__FILE__))
 
 apply 'Gemfile.rb'
-run 'bundle update'
-run 'bundle exec rails g alchemy:install --skip-demo-files'
-`bundle exec rake railties:install:migrations`
-run 'bundle exec rails g alchemy:devise:install'
-insert_into_file 'db/seeds.rb', "Alchemy::Seeder.seed!\n"
-route %Q(mount Alchemy::Engine => '/'\n)
+run_with_clean_bundler_env 'bundle update'
+run_with_clean_bundler_env 'bundle exec rails g alchemy:devise:install'
+run_with_clean_bundler_env 'bundle exec rails g alchemy:install --skip-demo-files --skip-webpacker-installer'
 
 # copy our customized config-file
 template 'config/alchemy/config.yml.tt', force: true
@@ -31,4 +28,4 @@ remove_file 'app/controllers/home_controller.rb'
 remove_file 'app/views/home/index.html.haml'
 FileUtils.rm_r File.expand_path('app/views/home', destination_root)
 
-run 'bundle exec rake db:migrate db:seed'
+run_with_clean_bundler_env 'bundle exec rake db:migrate db:seed'
