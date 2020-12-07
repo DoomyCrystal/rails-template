@@ -33,7 +33,6 @@ def apply_template!
   run_with_clean_bundler_env 'bin/setup'
   run_with_clean_bundler_env "bin/rails webpacker:install"
   create_initial_migration unless apply_bootstrap?
-  generate_spring_binstubs
 
   binstubs = %w[
     annotate bundler sidekiq
