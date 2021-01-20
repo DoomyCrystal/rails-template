@@ -8,7 +8,6 @@ run_with_clean_bundler_env 'bundle exec rails g alchemy:install --skip-demo-file
 # copy our customized config-file
 template 'config/alchemy/config.yml.tt', force: true
 
-copy_file 'app/controllers/alchemy/admin/passwords_controller.rb'
 copy_file 'app/helpers/alchemy_helper.rb'
 copy_file 'app/javascripts/packs/alchemy/admin.js'
 directory 'app/javascripts/scripts/vendor/src'
