@@ -32,7 +32,8 @@ de:
     #       search: Suche
     #
     page_layout_names:
-      index: Startseite
+      standard: Inhaltsseite
+      home: Startseite
 
     # == Translations for element names
     # Just use the elements name like defined inside the config/alchemy/elements.yml file and translate it.
@@ -46,7 +47,7 @@ de:
     #       contactform: Kontaktformular
     #
     element_names:
-      article: Artikel
+      text_block: Text-Block
 
     # == Translated names for contents in elements.
     # Used for the content editor label inside the element editor view (The elements window)
@@ -69,6 +70,15 @@ de:
       headline: Überschrift
       text: Text
       picture: Bild
+      icon: Icon
+      button: Button
+      link: Link
+      name: Name
+      address: Adresse
+      zip_code: PLZ
+      location: Ort
+      phone: Telefon Nr.
+      email: E-Mail
 
     # === Translations for content validations
     # Used when a user did not enter (correct) values to the content field.
@@ -198,6 +208,7 @@ de:
     back: 'zurück'
     create_tree_as_new_language: "%{language} als neuen Sprachbaum anlegen"
     locked_pages: "Aktive Seiten"
+    "All": "Alle"
     "Add global page": "Neue globale Seite"
     "Add page link": "Verweis hinzufügen"
     "Alchemy is open software and itself uses open software and free resources:": "Alchemy ist offene Software und benutzt selbst offene Software und freie Ressourcen:"
@@ -231,6 +242,9 @@ de:
     "Filter by tag": "Nach Tag filtern"
     "Flush page cache": "Seitencache löschen"
     "Flush picture cache": "Bildercache löschen"
+    "Add a page": "Neue Seite hinzufügen"
+    "Hierarchical": "Hierarchisch"
+    "Sortable List": "Sortierbare Liste"
     "Global shortcuts": "Globale Tastaturbefehle"
     "Hide childpages": "Unterseiten ausblenden"
     hide_elements: "Elemente ausblenden"
@@ -861,7 +875,10 @@ de:
         title: "Seitentitel"
         updated_at: "Aktualisiert am"
         urlname: "URL-Name"
+        slug: "URL-Name"
         visible: "in der Navigation sichtbar"
+        page_type: Layout
+        parent_id: "Unterhalb von"
       alchemy/picture:
         image_file_name: "Dateiname"
         image_file_height: "Höhe"

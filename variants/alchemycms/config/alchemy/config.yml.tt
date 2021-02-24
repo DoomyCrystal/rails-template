@@ -90,7 +90,7 @@ image_output_format: original
 
 # This is used by the seeder to create the default site.
 default_site:
-  name: <%= app_const_base %>
+  name: <%= production_hostname %>
   host: '*'
 
 # This is the default language when a new site gets created.

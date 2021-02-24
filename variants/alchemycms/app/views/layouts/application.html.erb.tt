@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="no-js" lang="<%%= "{@page.language.code}-#{@page.language.country_code.blank? ? @page.language.code.upcase : @page.language.country_code.upcase}" %>">
+<html class="no-js" lang="<%%= "#{@page.language.code}-CH" %>">
 <head>
   <!-- <%= production_hostname %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <%%= render "alchemy/pages/meta_data", title_suffix: t('meta_title'), title_separator: ' · ' %>
 
   <%%= csrf_meta_tags %>
