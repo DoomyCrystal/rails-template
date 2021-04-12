@@ -30,4 +30,4 @@ route "get '/manifest.json' => 'service_worker#manifest'"
 route 'root "home#index"'
 route %Q(mount Sidekiq::Web => '/sidekiq' # monitoring console\n)
 
-route "get '*all', to: 'errors#not_found' unless Rails.env.development?"
+route "get '*all', to: 'errors#not_found', constraints: ->(req) {req.path.exclude? 'rails/active_storage'} unless Rails.env.development?"
