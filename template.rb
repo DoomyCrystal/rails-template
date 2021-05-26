@@ -1,7 +1,7 @@
 require 'bundler'
 require 'json'
 require 'fileutils'
-RAILS_REQUIREMENT = '~> 6.1.1'.freeze
+RAILS_REQUIREMENT = '~> 6.0.3'.freeze
 
 def apply_template!
   assert_minimum_rails_version
