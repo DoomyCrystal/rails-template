@@ -4,15 +4,12 @@ apply 'Gemfile.rb'
 run_with_clean_bundler_env 'bundle update'
 run_with_clean_bundler_env 'bundle exec rails g alchemy:devise:install'
 run_with_clean_bundler_env 'bundle exec rails g alchemy:install --skip-demo-files --skip-webpacker-installer'
+run_with_clean_bundler_env 'yarn add @alchemy_cms/admin'
 
 # copy our customized config-file
 template 'config/alchemy/config.yml.tt', force: true
 
 copy_file 'app/helpers/alchemy_helper.rb'
-copy_file 'app/javascript/packs/alchemy/admin.js'
-directory 'app/javascript/scripts/vendor/src'
-copy_file 'app/javascript/scripts/vendor/admin.js'
-copy_file 'app/views/alchemy/essences/_richmedia_essence_editor.html.erb'
 copy_file 'app/views/alchemy/pages/_meta_data.html.erb', force: true
 template 'app/views/layouts/application.html.erb.tt', force: true
 copy_file 'config/locales/alchemy.de.yml', force: true
@@ -23,6 +20,7 @@ directory 'vendor/assets/javascripts/flatpickr'
 directory 'vendor/assets/javascripts/tinymce'
 copy_file 'vendor/assets/javascripts/select2_locale_de.js'
 copy_file 'vendor/assets/javascripts/alchemy/admin/all.js', force: true
+copy_file 'vendor/assets/stylesheets/alchemy/admin/all.css', force: true
 
 remove_file 'app/controllers/home_controller.rb'
 remove_file 'app/views/home/index.html.haml'

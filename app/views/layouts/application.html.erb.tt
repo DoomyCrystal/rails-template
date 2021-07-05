@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+            _     _ _       _       _                      _   _
+  ___  __ _| |__ | (_)  _  (_)_ __ | |_ ___ _ __ __ _  ___| |_(_)_   _____
+ / __|/ _` | '_ \| | | (_) | | '_ \| __/ _ \ '__/ _` |/ __| __| \ \ / / _ \
+ \__ \ (_| | | | | | |  _  | | | | | ||  __/ | | (_| | (__| |_| |\ V /  __/
+ |___/\__,_|_| |_|_|_| (_) |_|_| |_|\__\___|_|  \__,_|\___|\__|_| \_/ \___|
+
+-->
 <html class="no-js" lang="de-CH">
 <head>
   <!-- <%= production_hostname %> <%%= Rails.application.config.version %> (<%%= l(Rails.application.config.version_time) %>) -->
@@ -20,11 +28,6 @@
   <meta name="apple-mobile-web-app-title" content="<%%= t('meta_title') %>">
 </head>
 <body>
-<!--[if IE]>
-<p class="browserupgrade">Sie benutzen einen <strong>veralteten</strong> Browser. Bitte
-<a href="https://browsehappy.com/">aktualisieren Sir Ihren Browser</a> um diese Seite optimal zu nutzen.</p>
-<![endif]-->
-
 <%%= yield %>
 <%%= javascript_pack_tag 'application' %>
 </body>
