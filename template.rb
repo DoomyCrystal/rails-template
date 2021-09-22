@@ -1,7 +1,7 @@
 require 'bundler'
 require 'json'
 require 'fileutils'
-RAILS_REQUIREMENT = '~> 6.0.3'.freeze
+RAILS_REQUIREMENT = '~> 6.1.4'.freeze
 
 def apply_template!
   assert_minimum_rails_version
@@ -32,13 +32,13 @@ def apply_template!
 
   run_with_clean_bundler_env 'bin/setup'
   run_with_clean_bundler_env "bin/rails webpacker:install"
-  create_initial_migration unless apply_bootstrap?
+  create_initial_migration unless apply_alchemycms?
 
   binstubs = %w[
     annotate bundler sidekiq
   ]
   run_with_clean_bundler_env "bundle binstubs #{binstubs.join(' ')} --force"
-  run_with_clean_bundler_env 'yarn add unpoly @fullhuman/postcss-purgecss'
+  run_with_clean_bundler_env 'yarn add unpoly @fullhuman/postcss-purgecss@3.0.0'
 
   # we need to do this after the webpacker:install
   copy_file 'postcss.config.js', force: true
@@ -49,6 +49,8 @@ def apply_template!
     apply 'variants/bootstrap/template.rb'
     copy_file 'config/webpack/environment.js', force: true
   end
+
+  apply 'variants/tailwind/template.rb' if apply_tailwind?
 
   apply 'variants/alchemycms/template.rb' if apply_alchemycms?
 
@@ -160,12 +162,17 @@ def any_local_git_commits?
 end
 
 def apply_bootstrap?
-  @apply_bootstrap ||= ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'yes')\
+  @apply_bootstrap ||= ask_with_default('Use Bootstrap gems, layouts, views, etc.?', :blue, 'no')\
+     =~ /^y(es)?/i
+end
+
+def apply_tailwind?
+  @apply_tailwind ||= ask_with_default('Use tailwind for css?', :blue, 'yes')\
      =~ /^y(es)?/i
 end
 
 def apply_alchemycms?
-  @apply_alchemy_cms ||= ask_with_default('Install and setup AlchemyCMS?', :blue, 'no')\
+  @apply_alchemycms ||= ask_with_default('Install and setup AlchemyCMS?', :blue, 'no')\
      =~ /^y(es)?/i
 end
 
